@@ -2,23 +2,30 @@
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 import Badge from '../components/Badge.astro';
+import LinkedInIcon from '../components/icons/LinkedIn.astro';
+import GitHubIcon from '../components/icons/GitHub.astro';
+import GmailIcon from '../components/icons/Gmail.astro';
+import Redes from '../components/Redes.astro';
+import Experiencia from '../components/Experiencia.astro';
+import SeccionContainer from '../components/SeccionContainer.astro';
+import Laburo from '../components/icons/Laburo.astro';
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
 	<main>
-		<section class="w-full lg:w-[740px] mx-auto py-44">
-			 <img 
-        class="rounded-full w-12 h-12 object-cover mb-4" 
-        src="/src/img/adri.jpg" 
+		<SeccionContainer class="py-44 pb-24">
+			 <img
+        class="rounded-full w-12 h-12 object-cover mb-4"
+        src="/src/img/adri.jpg"
         alt="adri foto"
     >
 	<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-4">
-		Hola, Soy Adri 
-		<a 
-			href="https://www.linkedin.com/in/adrian-navarro-arg/" 
-			target="_blank" rel="noopener" 
+		Hola, Soy Adri
+		<a
+			href="https://www.linkedin.com/in/adrian-navarro-arg/"
+			target="_blank" rel="noopener"
 			class="flex justify-center items-center">
 			<Badge>Ofrecezco servicios y soluciones informaticas</Badge>
 		</a>
@@ -27,9 +34,34 @@ import Badge from '../components/Badge.astro';
 		<span>+4 Años de Experiencia.</span>
 		<span class="text-yellow-100/90"> Desarrollo Web, Analisis de datos, Bussines Analyst.</span>
 		<span class="text-red-200/90">Vivo en Corrientes, Argentina.</span>
-		<span class="opacity-80">Soy Alto Crack</span> 
+		<span class="opacity-80">Soy Alto Crack</span>
 	</h2>
-	<ul></ul>
-	</section>
+	<nav class="flex gap-x-4 mt-8">
+    <Redes href="https://www.linkedin.com/in/adrian-navarro-arg/">
+        <LinkedInIcon class="w-6 h-6" />
+        LinkedIn
+    </Redes>
+
+    <Redes href="https://github.com/adriNavar">
+        <GitHubIcon class="w-6 h-6" />
+        GitHub
+    </Redes>
+
+    <Redes href="mailto:adridonorione@gmail.com">
+        <GmailIcon class="w-6 h-6"/>
+        Contáctame
+    </Redes>
+</nav>
+
+</SeccionContainer>
+
+	<SeccionContainer id="experiencia">
+		<h2 class="text-2xl font-semibold mb-6 flex gap-x-2 items-center">
+			<!-- el size se usa para hacer py y pb al mismo tamaño los 2 -->
+			<Laburo class="size-8"></Laburo>
+			Experiencia Laboral</h2>
+		<Experiencia/>
+		
+	</SeccionContainer>
 	</main>
 </Layout>

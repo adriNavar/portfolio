@@ -1,0 +1,35 @@
+---
+import ExperienciaItem from './ExperienciaItem.astro';
+const EXPERIENCIA = [
+    {
+        fecha: 'Julio 2022 - Presente',
+        titulo: 'Desarrollador FullStack — SYK S.A (Catastro Corrientes)',
+        descripcion: 'Desarrollo de aplicaciones web para el sistema de Catastro provincial utilizando ASP.NET y Angular. Creación de dashboards y reportes con Power BI y Grafana. Implementación de automatizaciones con n8n para optimizar flujos de trabajo ágiles y gestión de despliegues con Jenkins.',
+        enlace: 'https://catastro.corrientes.gob.ar/', // Opcional: link a la web oficial
+        botonTexto: 'Ver proyecto'
+    },
+    {
+        fecha: 'Marzo 2022 - Junio 2022',
+        titulo: 'Soporte Técnico — Pasantia en Dirección General de Catastro',
+        descripcion: 'Resolución de problemas técnicos en redes y sistemas operativos para las diversas áreas de la institución, asegurando la continuidad operativa de los sistemas internos.'
+    },
+    {
+        fecha: 'Julio 2018 - Febrero 2022',
+        titulo: 'Asesor de Soporte Técnico — Atento S.A. Chaco',
+        descripcion: 'Soporte técnico especializado para clientes de Movistar Fija, enfocado en la resolución eficiente de incidencias técnicas y garantía de satisfacción del cliente.'
+    }
+];
+---
+
+
+<ol class="relative border-s border-white/20 ml-3">     
+    
+     {   EXPERIENCIA.map(experiencia => (
+        
+            <ExperienciaItem 
+                {...experiencia}/>
+                
+       
+))
+    }
+
