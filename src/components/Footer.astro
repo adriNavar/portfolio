@@ -1,0 +1,31 @@
+---
+import GmailIcon from '../components/icons/Gmail.astro';
+import LinkedIn from './icons/LinkedIn.astro';
+import WhatsAppIcon from './icons/WhatsApp.astro'; // Importamos el de Wpp
+const currentYear = new Date().getFullYear();
+---
+<footer class="opacity-90 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-10 flex justify-center mt-[-2rem] relative z-10">
+  <div class="rounded-3xl md:rounded-full border border-yellow-200/20 bg-[#0a192f]/95 backdrop-blur-xl w-full px-8 py-6 md:py-4 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_-10px_20px_rgba(0,0,0,0.5)]">
+    <div class="flex gap-x-3 order-2 md:order-1">
+      <a href="https://linkedin.com/in/adrian-navarro-arg/" target="_blank" class="size-10 bg-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg shadow-white/5">
+        <LinkedIn class="size-6 text-[#0077b5]" />
+      </a>
+      
+      <a href="https://wa.me/543795037585" target="_blank" class="size-10 bg-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg shadow-white/5">
+        <WhatsAppIcon class="size-6 text-[#25D366]" />
+      </a>
+
+      <a href="mailto:adridonorione@gmail.com" class="size-10 bg-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg shadow-white/5">
+        <GmailIcon class="size-6 text-[#EA4335]"/>
+      </a>
+    </div>
+
+    <span class="text-yellow-200/60 text-[10px] md:text-xs font-mono tracking-[0.3em] uppercase order-1 md:order-2 text-center">
+      CORRIENTES • ARGENTINA
+    </span>
+
+    <div class="text-white/60 text-[9px] md:text-[10px] font-mono text-center md:text-right order-3">
+      © {currentYear} • <span class="text-white/40 italic">Adrián Navarro.</span>
+    </div>
+  </div>
+</footer>

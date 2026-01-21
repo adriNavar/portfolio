@@ -1,10 +1,60 @@
-<header class="flex justify-center items-center py-3 w-[1120px] mx-auto"> 
- 
-<nav class="flex flex-row gap-x-10 opacity-70">
-    <a href="#inicio">Inicio</a>
-    <a href="#sobremi">Sobre mi</a>
-    <a href="#experiencia">Experiencia</a>
-    <a href="#proyectos">Proyectos</a>
-     <a href="#contacto">Contacto</a>
-</nav>
+<header class="fixed top-4 left-0 w-full z-50 px-4">
+    <div class="max-w-4xl mx-auto bg-[#0a192f]/90 backdrop-blur-xl border border-yellow-200/30 rounded-full py-3 px-6 flex items-center justify-between shadow-[0_10px_30px_-10px_rgba(2,12,27,0.7)] relative">
+        
+        <a href="#inicio" class="flex items-center gap-3 group shrink-0">
+            <div class="w-8 h-8 rounded-full bg-yellow-200 flex items-center justify-center font-bold text-[#0a192f] text-xs transition-transform group-hover:scale-110 shadow-[0_0_15px_rgba(254,240,138,0.3)]">
+                A
+            </div>
+            <span class="font-bold text-sm text-white tracking-tight group-hover:text-yellow-200 transition-colors hidden xs:block">
+                Adrian.dev
+            </span>
+        </a>
+
+        <button id="menu-toggle" class="md:hidden text-white p-2 focus:outline-none" aria-label="Abrir menú">
+            <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path id="icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+
+        <nav id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-[#0a192f] border border-white/10 rounded-3xl p-6 flex-col gap-y-4 text-center shadow-2xl z-[60] md:static md:flex md:flex-row md:bg-transparent md:border-none md:p-0 md:gap-x-6 md:text-xs md:shadow-none md:w-auto md:scale-100 md:opacity-100 md:pointer-events-auto uppercase tracking-widest font-mono">
+            <a href="#inicio" class="nav-link text-white/70 hover:text-yellow-200 transition-colors py-2 md:py-0">Inicio</a>
+            <a href="#experiencia" data-tab="exp" class="nav-link text-white/70 hover:text-yellow-200 transition-colors py-2 md:py-0">Experiencia</a>
+            <a href="#experiencia" data-tab="proy" class="nav-link text-white/70 hover:text-yellow-200 transition-colors py-2 md:py-0">Proyectos</a>
+            <a href="#experiencia" data-tab="about" class="nav-link text-white/70 hover:text-yellow-200 transition-colors py-2 md:py-0">Sobre mí</a>
+            <a href="#experiencia" data-tab="contact" class="nav-link text-white/70 hover:text-yellow-200 transition-colors py-2 md:py-0">Contacto</a>
+            <a href="#experiencia" data-tab="team" class="nav-link text-white/70 hover:text-yellow-200 transition-colors py-2 md:py-0">Comunidad</a>
+        </nav>
+    </div>
 </header>
+
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconPath = document.getElementById('icon-path');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    menuToggle?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isHidden = mobileMenu?.classList.contains('hidden');
+        
+        if (isHidden) {
+            mobileMenu?.classList.remove('hidden');
+            mobileMenu?.classList.add('flex');
+            iconPath?.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+        } else {
+            mobileMenu?.classList.add('hidden');
+            mobileMenu?.classList.remove('flex');
+            iconPath?.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth < 768) {
+                mobileMenu?.classList.add('hidden');
+                mobileMenu?.classList.remove('flex');
+                iconPath?.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+            }
+        });
+    });
+</script>

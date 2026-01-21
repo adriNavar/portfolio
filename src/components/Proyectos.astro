@@ -1,0 +1,203 @@
+---
+import ProyectosItem from "./ProyectosItem.astro";
+import ReactIcon from "./icons/React.astro";
+import MongoIcon from "./icons/Mongo.astro";
+import MercadoPagoIcon from "./icons/MercadoPago.astro";
+import NodeIcon from "./icons/Node.astro";
+import AngularIcon from "./icons/Angular.astro";
+import FirebaseIcon from "./icons/Firebase.astro";
+import DjangoIcon from "./icons/Django.astro";
+import PythonIcon from "./icons/Python.astro";
+import SqliteIcon from "./icons/Sqlite.astro";
+const TAGS = {
+    DJANGO: {
+    name: "Django",
+    class: "border-[#092e20]/40 bg-[#092e20]/10 text-[#004d20]",
+    icon: DjangoIcon,
+  },
+  PYTHON: {
+    name: "Python",
+    class: "border-[#3776ab]/40 bg-[#3776ab]/10 text-[#4584b6]",
+    icon: PythonIcon,
+  },
+  SQLITE: {
+    name: "SQLite",
+    class: "border-[#003b57]/40 bg-[#003b57]/10 text-[#00a3e0]",
+    icon: SqliteIcon,
+  },
+
+    ANGULAR: {
+    name: "Angular",
+    class: "border-[#dd0031]/40 bg-[#dd0031]/10 text-[#ff4d4d]",
+    icon: AngularIcon,
+  },
+  FIREBASE: {
+    name: "Firebase",
+    class: "border-[#ffca28]/40 bg-[#ffca28]/10 text-[#ffca28]",
+    icon: FirebaseIcon,
+  },
+  REACT: {
+    name: "ReactJS",
+    class: "border-[#00d8ff]/40 bg-[#00d8ff]/10 text-[#7defff]",
+    icon: ReactIcon,
+  },
+MONGO: {
+    name: "MongoDB",
+    // Verde esmeralda para que resalte sobre el fondo oscuro
+    class: "border-[#47a248]/40 bg-[#47a248]/10 text-[#75d176]", 
+    icon: MongoIcon,
+  },
+  MP: {
+    name: "Mercado Pago",
+    class: "border-[#009ee3]/40 bg-[#009ee3]/10 text-[#54c3f7]",
+    icon: MercadoPagoIcon,
+  },
+  NODE: {
+    name: "NodeJS",
+    class: "border-[#339933]/40 bg-[#339933]/10 text-[#66cc66]",
+    icon: NodeIcon,
+  }
+}
+
+const PROYECTOS = [
+  {
+    titulo: "El Promesero - Alfajores Artesanales",
+    categoria: "desarrollo",
+    descripcion: "Desarrollo basado en curso de stack MERN. Se realizó un rediseño adaptando a los requisitos del cliente (imagen de fondo, colores, tipografías, etc).",
+    tags: [TAGS.MONGO, TAGS.REACT, TAGS.NODE],
+    imagen: "/proyectos/promesero.webp",
+    link: "#",
+    github: "#"
+  },
+  {
+    titulo: "Jota & Cía - Estudio Contable",
+    categoria: "desarrollo",
+    descripcion: "Plataforma web para gestión contable con integración de pagos automatizados mediante la API de Mercado Pago y base de datos NoSQL.",
+    tags: [TAGS.REACT, TAGS.MONGO, TAGS.MP],
+    imagen: "/proyectos/jotaycia.webp",
+    link: "#",
+    github: "#"
+  },
+  {
+    titulo: "Sistema de Puntos de Venta",
+    categoria: "desarrollo",
+    descripcion: "Software de gestión comercial integral. Permite el control de inventario, registro de ventas en tiempo real y gestión de clientes mediante una arquitectura escalable.",
+    tags: [TAGS.ANGULAR, TAGS.NODE, TAGS.FIREBASE],
+    imagen: "/proyectos/pos.webp", // Podés dejarlo así hasta tener la foto
+    link: "#",
+    github: "#"
+  },
+  {
+    titulo: "Blog de Recetas Educativo",
+    categoria: "desarrollo",
+    descripcion: "Proyecto final de curso enfocado en el desarrollo de un CMS de recetas. Implementación de CRUD completo, autenticación de usuarios y administración de base de datos relacional con SQLite, desplegado exitosamente en PythonAnywhere.",
+    tags: [TAGS.PYTHON, TAGS.DJANGO, TAGS.SQLITE],
+    imagen: "/proyectos/recetas.webp",
+    link: "https://tu-usuario.pythonanywhere.com", // Aquí puedes poner el link real
+    github: "#"
+  }
+]
+---
+<div class="flex flex-wrap gap-4 mb-10 text-xs font-mono">
+  <button class="filter-btn text-yellow-200" data-category="todos">[*] TODOS</button>
+  <button class="filter-btn text-white/40" data-category="desarrollo">[1] DESARROLLO WEB</button>
+  <button class="filter-btn text-white/40" data-category="business">[2] BUSINESS ANALYST</button>
+</div>
+
+<div class="relative w-full max-w-4xl mx-auto px-2 md:px-10">
+  <div class="overflow-hidden rounded-2xl border border-white/10 bg-[#0d1624]/60 backdrop-blur-md">
+    <div id="main-projects-slider" class="flex transition-transform duration-500 ease-in-out w-full">
+      {PROYECTOS.map((proy) => (
+        <div class="proyecto-card w-full flex-shrink-0 p-4 md:p-10">
+           <ProyectosItem {...proy} />
+        </div>
+      ))}
+    </div>
+    
+    <div class="flex justify-center gap-2 pb-6">
+      {PROYECTOS.map((_, index) => (
+        <div class="project-dot h-1 w-1 bg-white/20 rounded-full transition-all" data-index={index}></div>
+      ))}
+    </div>
+  </div>
+
+  <button id="prev-project" class="absolute -left-1 md:-left-4 top-1/2 -translate-y-1/2 size-10 md:size-12 bg-yellow-200 rounded-full flex items-center justify-center text-black z-40 shadow-lg active:scale-90">
+    <svg class="size-5 md:size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M15 19l-7-7 7-7"/></svg>
+  </button>
+  
+  <button id="next-project" class="absolute -right-1 md:-right-4 top-1/2 -translate-y-1/2 size-10 md:size-12 bg-yellow-200 rounded-full flex items-center justify-center text-black z-40 shadow-lg active:scale-90">
+    <svg class="size-5 md:size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+</div>
+
+  <div class="flex justify-center gap-2 mt-6">
+    {PROYECTOS.map((_, index) => (
+      <div 
+        class={`project-dot h-1 transition-all duration-300 rounded-full ${index === 0 ? 'w-8 bg-yellow-200' : 'w-2 bg-white/10'}`}
+        data-index={index}
+      ></div>
+    ))}
+  </div>
+</div>
+
+<style>
+  /* Animación para que las flechas titilen sutilmente */
+  @keyframes subtle-pulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+  }
+  .animate-subtle-pulse {
+    animation: subtle-pulse 2s infinite ease-in-out;
+  }
+  /* Quitamos la animación cuando el usuario interactúa */
+  #next-project:hover svg, #prev-project:hover svg {
+    animation: none;
+    opacity: 1;
+  }
+</style>
+
+<script>
+  function initProjectSlider() {
+    const slider = document.getElementById('main-projects-slider');
+    const nextBtn = document.getElementById('next-project');
+    const prevBtn = document.getElementById('prev-project');
+    const dots = document.querySelectorAll('.project-dot');
+    const cards = document.querySelectorAll('.proyecto-card');
+
+    let currentIndex = 0;
+
+    const updateSlider = () => {
+      if (slider) {
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+      
+      // CAMBIO DE COLOR DINÁMICO
+      dots.forEach((dot, idx) => {
+        if (idx === currentIndex) {
+          // Proyecto activo: Barra larga y amarilla brillante
+          dot.classList.replace('w-3', 'w-10');
+          dot.classList.replace('bg-white/20', 'bg-yellow-200');
+          dot.classList.add('shadow-[0_0_15px_rgba(254,240,138,0.5)]');
+        } else {
+          // Proyectos inactivos: Puntos discretos
+          dot.classList.replace('w-10', 'w-3');
+          dot.classList.replace('bg-yellow-200', 'bg-white/20');
+          dot.classList.remove('shadow-[0_0_15px_rgba(254,240,138,0.5)]');
+        }
+      });
+    };
+
+    nextBtn?.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % cards.length;
+      updateSlider();
+    });
+
+    prevBtn?.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+      updateSlider();
+    });
+  }
+
+  document.addEventListener('astro:page-load', initProjectSlider);
+  initProjectSlider();
+</script>

@@ -1,5 +1,5 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Header from '../components/Header.astro';
 import Layout from '../layouts/Layout.astro';
 import Badge from '../components/Badge.astro';
 import LinkedInIcon from '../components/icons/LinkedIn.astro';
@@ -9,59 +9,192 @@ import Redes from '../components/Redes.astro';
 import Experiencia from '../components/Experiencia.astro';
 import SeccionContainer from '../components/SeccionContainer.astro';
 import Laburo from '../components/icons/Laburo.astro';
+import Proyectos from "../components/Proyectos.astro";
+import CodeIcon from '../components/icons/Code.astro';
+import UserIcon from '../components/icons/User.astro';
+import Contacto from '../components/Contacto.astro';
+import Footer from "../components/Footer.astro";
+import Comunidad from '../components/Comunidad.astro';
+import SobreMi from '../components/SobreMi.astro';
+import CvIcon from '../components/icons/Cv.astro';
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
-
 <Layout>
-	<main>
-		<SeccionContainer class="py-44 pb-24">
-			 <img
-        class="rounded-full w-12 h-12 object-cover mb-4"
-        src="/src/img/adri.jpg"
-        alt="adri foto"
-    >
-	<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-4">
-		Hola, Soy Adri
-		<a
-			href="https://www.linkedin.com/in/adrian-navarro-arg/"
-			target="_blank" rel="noopener"
-			class="flex justify-center items-center">
-			<Badge>Ofrecezco servicios y soluciones informaticas</Badge>
-		</a>
-	</h1>
-	<h2 class="text-2xl opacity-80 text-wrap">
-		<span>+4 Años de Experiencia.</span>
-		<span class="text-yellow-100/90"> Desarrollo Web, Analisis de datos, Bussines Analyst.</span>
-		<span class="text-red-200/90">Vivo en Corrientes, Argentina.</span>
-		<span class="opacity-80">Soy Alto Crack</span>
-	</h2>
-	<nav class="flex gap-x-4 mt-8">
-    <Redes href="https://www.linkedin.com/in/adrian-navarro-arg/">
-        <LinkedInIcon class="w-6 h-6" />
-        LinkedIn
-    </Redes>
+    <Header /> 
+    
+    <main class="px-4 flex flex-col items-center w-full">
+        
+      <SeccionContainer id="inicio" class="pt-32 md:pt-44 pb-12 w-full max-w-4xl">
+    <div class="border border-white/20 rounded-3xl overflow-hidden bg-[#050505]/60 shadow-2xl backdrop-blur-md p-8 md:p-12">
+        <div class="flex flex-col items-center md:items-start text-center md:text-left">
+            <h1 class="text-white text-4xl md:text-6xl font-bold flex flex-col md:flex-row items-center gap-y-4 md:gap-x-4 pb-6">
+                Adrián Navarro
+                <a href="https://www.linkedin.com/in/adrian-navarro-arg/" target="_blank" rel="noopener" class="shrink-0 hover:scale-105 transition">
+                    <Badge>Servicios y Soluciones Informaticas</Badge>
+                </a>
+            </h1>
 
-    <Redes href="https://github.com/adriNavar">
-        <GitHubIcon class="w-6 h-6" />
-        GitHub
-    </Redes>
+            <h2 class="text-lg md:text-2xl opacity-90 text-pretty max-w-[800px] leading-relaxed">
+                <span class="text-yellow-200 font-bold">+4 Años de Experiencia.</span>
+                <span class="text-white"> Desarrollo Web, Análisis de datos y Business Analyst.</span>
+                <span class="block text-sky-200/80 mt-2">
+                    Corrientes, Argentina • Soy Alto Crack
+                </span>
+            </h2>
 
-    <Redes href="mailto:adridonorione@gmail.com">
-        <GmailIcon class="w-6 h-6"/>
-        Contáctame
-    </Redes>
-</nav>
+            <nav class="flex flex-row flex-wrap gap-3 mt-10 justify-center md:justify-start w-full">
+                <Redes href="https://www.linkedin.com/in/adrian-navarro-arg/">
+                    <div class="flex items-center gap-x-2 px-5 py-2.5 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-white/20 transition group">
+                        <LinkedInIcon class="size-5 text-[#0A66C2]" /> 
+                        <span class="text-white/90 font-medium text-sm">LinkedIn</span>
+                    </div>
+                </Redes>
+                
+                <Redes href="https://github.com/adriNavar">
+                    <div class="flex items-center gap-x-2 px-5 py-2.5 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-white/20 transition group">
+                        <GitHubIcon class="size-5 text-white" /> 
+                        <span class="text-white/90 font-medium text-sm">GitHub</span>
+                    </div>
+                </Redes>
+                
+                <Redes href="mailto:adridonorione@gmail.com">
+                    <div class="flex items-center gap-x-2 px-5 py-2.5 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-white/20 transition group">
+                        <GmailIcon class="size-5" /> 
+                        <span class="text-white/90 font-medium text-sm hidden md:inline">adridonorione@gmail.com</span>
+                        <span class="text-white/90 font-medium text-sm md:hidden">Email</span>
+                    </div>
+                </Redes>
 
+                <Redes href="/tu-cv.pdf">
+                    <div class="flex items-center gap-x-2 px-5 py-2.5 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-white/20 transition group">
+                        <CvIcon class="size-5 text-white/80" />
+                        <span class="text-white/90 font-medium text-sm">Ver CV</span>
+                    </div>
+                </Redes>
+            </nav>
+        </div>
+    </div>
 </SeccionContainer>
 
-	<SeccionContainer id="experiencia">
-		<h2 class="text-2xl font-semibold mb-6 flex gap-x-2 items-center">
-			<!-- el size se usa para hacer py y pb al mismo tamaño los 2 -->
-			<Laburo class="size-8"></Laburo>
-			Experiencia Laboral</h2>
-		<Experiencia/>
-		
-	</SeccionContainer>
-	</main>
+        <SeccionContainer id="experiencia" class="pt-4 pb-32 px-2 sm:px-4 w-full max-w-4xl">
+            <div class="border border-white/20 rounded-xl overflow-hidden bg-[#050505]/90 shadow-2xl backdrop-blur-md">
+                
+                <div class="bg-white/10 border-b border-white/10 flex items-center justify-between px-4 py-3">
+                    <div class="flex gap-2 shrink-0">
+                        <div class="size-3 rounded-full bg-[#ff5f56]"></div> 
+                        <div class="size-3 rounded-full bg-[#ffbd2e]"></div> 
+                        <div class="size-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+
+                    <div class="flex items-center gap-2 font-mono text-[11px] md:text-xs uppercase tracking-widest text-white/90">
+                        <span class="text-yellow-200/50 hidden xs:inline">~/portfolio/</span>
+                        <span id="active-tab-name" class="text-white font-bold">experiencia</span>
+                    </div>
+
+                    <div class="flex items-center">
+                        <div class="size-2 rounded-full bg-[#27c93f] animate-pulse shadow-[0_0_8px_#27c93f]"></div>
+                    </div>
+                </div>
+
+                <div class="p-6 md:p-10">
+                    <div id="content-exp" class="block">
+                        <h2 class="text-2xl font-semibold mb-10 flex gap-x-3 items-center text-white/90">
+                            <Laburo class="size-8" />
+                            Experiencia Laboral
+                        </h2>
+                        <Experiencia />
+                    </div>
+                    <div id="content-proy" class="hidden">
+                        <h2 class="text-2xl font-semibold mb-10 flex gap-x-3 items-center text-white/90">
+                            <CodeIcon class="size-8" />
+                            Proyectos Destacados
+                        </h2>
+                        <Proyectos /> 
+                    </div>
+                    <div id="content-about" class="hidden">
+                        <SobreMi />
+                    </div>
+                    <div id="content-contact" class="hidden">
+                        <Contacto />
+                    </div>
+                    <div id="content-team" class="hidden">
+                        <Comunidad />
+                    </div>
+                </div>
+            </div>
+        </SeccionContainer>
+
+        <Footer/>
+    </main>
 </Layout>
+<script is:inline>
+  const initTabs = () => {
+    const tabs = {
+      exp: { btn: document.getElementById('tab-exp'), content: document.getElementById('content-exp') },
+      proy: { btn: document.getElementById('tab-proy'), content: document.getElementById('content-proy') },
+      about: { btn: document.getElementById('tab-about'), content: document.getElementById('content-about') },
+      contact: { btn: document.getElementById('tab-contact'), content: document.getElementById('content-contact') },
+      team: { btn: document.getElementById('tab-team'), content: document.getElementById('content-team') }
+    };
+
+    const switchTab = (activeKey) => {
+    // Mapeo de ID de botón a Nombre Visual
+    const names = {
+        exp: 'experiencia',
+        proy: 'proyectos',
+        about: 'sobre-mi',
+        contact: 'contacto',
+        team: 'comunidad'
+    };
+
+    // CAMBIO CLAVE: Actualiza el nombre en la terminal
+    const label = document.getElementById('active-tab-name');
+    if (label) label.innerText = names[activeKey] || activeKey;
+
+    Object.keys(tabs).forEach(key => {
+        const isActive = key === activeKey;
+        if (!tabs[key].content) return;
+
+        tabs[key].content.classList.toggle('hidden', !isActive);
+        tabs[key].content.classList.toggle('block', isActive);
+        
+        // Ya no necesitamos manejar clases de botones aquí porque ya no hay botones en la consola
+    });
+
+    if (activeKey === 'proy') window.dispatchEvent(new Event('resize'));
+};
+
+    // --- BLOQUE NUEVO PARA EL MENÚ SUPERIOR ---
+    // Buscamos todos los enlaces del header que tengan la clase 'nav-link'
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const targetTab = link.getAttribute('data-tab');
+        if (targetTab) {
+          switchTab(targetTab);
+        }
+      });
+    });
+    // ------------------------------------------
+
+    tabs.exp.btn?.addEventListener('click', () => switchTab('exp'));
+    tabs.proy.btn?.addEventListener('click', () => switchTab('proy'));
+    tabs.about.btn?.addEventListener('click', () => switchTab('about'));
+    tabs.contact.btn?.addEventListener('click', () => switchTab('contact'));
+	tabs.team.btn?.addEventListener('click', () => switchTab('team'));
+  }; 
+
+  document.addEventListener('astro:page-load', initTabs);
+  initTabs(); 
+</script>
+<style>
+    /* Estilo para que se pueda deslizar el menú en el celu sin ver la barra de scroll */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>
