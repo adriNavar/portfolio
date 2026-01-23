@@ -17,142 +17,223 @@ import GrafanaIcon from "./icons/Grafana.astro";
 import FirebaseIcon from "./icons/Firebase.astro";
 import DjangoIcon from "./icons/Django.astro";  
 ---
+<style>
+  /* Animación de titileo agresiva para que se note el parpadeo */
+  @keyframes terminal-blink {
+    0%, 100% { 
+      opacity: 1; 
+      filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+    }
+    50% { 
+      opacity: 0.2; 
+      filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0));
+    }
+  }
+
+  .animate-blink {
+    animation: terminal-blink 2.5s infinite ease-in-out;
+  }
+
+  /* Delays para que no titilen todos al mismo tiempo */
+  .delay-1 { animation-delay: 0.4s; }
+  .delay-2 { animation-delay: 0.8s; }
+  .delay-3 { animation-delay: 1.2s; }
+</style>
+
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 py-8 items-start">
   
   <div class="lg:col-span-7 flex flex-col gap-10">
-    
     <section>
-      <h2 class="text-2xl font-bold flex gap-x-3 items-center text-white mb-8 font-mono">
+      <h2 class="text-2xl font-black flex gap-x-3 items-center text-white mb-8 font-mono uppercase">
         <UserIcon class="size-6 text-yellow-200" /> PERFIL
       </h2>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="md:col-span-1">
             <div class="relative group mx-auto md:mx-0 max-w-[180px]">
-                <div class="absolute -inset-1 bg-gradient-to-r from-yellow-200 to-orange-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                <div class="absolute -inset-1 bg-gradient-to-r from-yellow-200 to-orange-500 rounded-2xl blur opacity-30"></div>
                 <img 
                     src="src/img/adri.jpg" 
                     alt="Adrián Navarro" 
-                    class="relative w-full aspect-square object-cover rounded-2xl border-2 border-white/10 grayscale hover:grayscale-0 transition-all duration-500 shadow-2xl"
+                    class="relative w-full aspect-square object-cover rounded-2xl border-4 border-white/30 grayscale-0 md:grayscale hover:grayscale-0 transition-all duration-500 shadow-2xl"
                 />
             </div>
         </div>
 
-        <div class="md:col-span-2 space-y-4 font-sans leading-relaxed text-gray-300 text-center md:text-left text-sm md:text-base">
+        <div class="md:col-span-2 space-y-4 font-sans leading-relaxed text-white text-center md:text-left text-base md:text-lg">
           <p>
-            ¡Hola! Soy <strong class="text-white">Adrián Navarro</strong>. Vivo en Corrientes y hace más de 4 años que transformo problemas complejos en soluciones digitales eficientes.
+            ¡Hola! Soy <strong class="text-yellow-200 font-black">Adrián Navarro</strong>. Vivo en Corrientes y hace más de 4 años que transformo problemas complejos en soluciones digitales eficientes.
           </p>
           <p>
-            Como <strong class="text-red-200/90">Desarrollador Web</strong> y <strong class="text-yellow-200/90">Business Analyst</strong>, mi objetivo es aportar claridad y crecimiento real a los proyectos.
+            Como <strong class="text-red-400 font-black">Desarrollador Web</strong> y <strong class="text-yellow-400 font-black">Business Analyst</strong>, mi objetivo es aportar claridad y crecimiento real a los proyectos.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="pt-8 border-t border-white/10">
-      <h2 class="text-xl font-bold flex gap-x-3 items-center text-white mb-6 font-mono">
-        <GraduationIcon class="size-6 text-yellow-200" /> # EDUCACIÓN
-      </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div class="border-l-2 border-yellow-200/30 pl-4">
-          <h4 class="text-white font-semibold text-sm">Licenciatura en Sistemas de Información</h4>
-          <p class="text-white/40 text-[10px] mt-1 uppercase">UNNE | 2014 - Presente</p>
+  <section class="pt-6 border-t-2 border-white/20">
+  <h2 class="text-base font-black flex gap-x-2 items-center text-white mb-4 font-mono uppercase">
+    <GraduationIcon class="size-5 text-yellow-200" /> # EDUCACIÓN
+  </h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="border-l-4 border-yellow-200 pl-3 bg-white/5 p-3 rounded-r-xl">
+      <h4 class="text-white font-black text-sm leading-tight">Licenciatura en Sistemas de Información</h4>
+      <p class="text-yellow-200/80 text-[9px] mt-1 font-black uppercase tracking-widest">UNNE | 2014 - Presente</p>
+    </div>
+    <div class="border-l-4 border-white/30 pl-3 bg-white/5 p-3 rounded-r-xl">
+      <h4 class="text-white font-black text-sm leading-tight">Analista Programador Universitario</h4>
+      <p class="text-white/40 text-[9px] mt-1 font-black uppercase tracking-widest">UNNE | 2014 - 2020</p>
+    </div>
+    <div class="border-l-4 border-white/30 pl-3 bg-white/5 p-3 rounded-r-xl">
+      <h4 class="text-white font-black text-sm leading-tight">Tecnico Electromecánico</h4>
+      <p class="text-white/40 text-[9px] mt-1 font-black uppercase tracking-widest">EET N°2 | 2007 - 2013</p>
+    </div>
+  </div>
+</section>
+
+<div class="flex flex-col gap-6 w-full max-w-[320px]">
+  <section class="p-5 bg-[#0a0a0a] border-2 border-white/30 rounded-3xl shadow-2xl">
+    <h3 class="text-[#FFFFFF] font-black mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest">
+      <span class="text-yellow-200">//</span> CERTIFICACIONES_OFICIALES
+    </h3>
+    
+    <div class="flex flex-col gap-3">
+      {[
+        "QA MANAGEMENT", 
+        "FULLSTACK DEVELOPER", 
+        "DATA SCIENCE", 
+        "ASP.NET & MICROSERVICES"
+      ].map((cert) => (
+        <div class="flex items-center justify-between px-4 py-3 bg-white/5 border border-white/10 rounded-xl group hover:border-white/30 transition-all">
+          <span class="text-[10px] text-[#FFFFFF] font-black uppercase tracking-tight truncate pr-2">
+            {cert}
+          </span>
+          <button class="text-[9px] border-2 border-yellow-200 text-yellow-200 px-3 py-1 rounded-lg font-black hover:bg-yellow-200 hover:text-black transition-all shrink-0">
+            VER
+          </button>
         </div>
-        <div class="border-l-2 border-white/10 pl-4">
-          <h4 class="text-white font-semibold text-sm">Analista Programador Universitario</h4>
-          <p class="text-white/40 text-[10px] mt-1 uppercase">UNNE | 2014 - 2020</p>
-        </div>
-          <div class="border-l-2 border-white/10 pl-4">
-          <h4 class="text-white font-semibold text-sm">Tecnico Electromecánico</h4>
-          <p class="text-white/40 text-[10px] mt-1 uppercase">EET N°2 | 2007 - 2013</p>
-        </div>
-      </div>
-    </section>
+      ))}
+    </div>
+  </section>
+
+ 
+</div>
   </div>
 
   <div class="lg:col-span-5 flex flex-col gap-8">
-    <section class="bg-[#0a0a0a]/40 border border-white/10 rounded-3xl p-6 shadow-2xl">
-      <h2 class="text-lg font-bold flex gap-x-3 items-center text-white mb-8 font-mono">
-        <CodeIcon class="size-5 text-red-300" /> STACK_TECH
-      </h2>
+    
+<section class="bg-[#0a0a0a] border-2 border-white/30 rounded-3xl p-8 shadow-2xl">
+  <h2 class="text-xl font-black flex gap-x-3 items-center text-white mb-10 font-mono">
+    <CodeIcon class="size-6 text-red-400" /> STACK_TECH
+  </h2>
 
-      <div class="space-y-10">
-        <div>
-          <h4 class="text-yellow-200/30 text-[9px] font-mono uppercase tracking-[0.2em] mb-6 border-b border-white/5 pb-2">Frontend & Frameworks</h4>
-          <div class="grid grid-cols-3 gap-6">
-             <div class="flex flex-col items-center gap-2 group">
-                <ReactIcon class="size-8 grayscale group-hover:grayscale-0 transition-all" />
-                <span class="text-[8px] font-mono text-white/20 uppercase">React</span>
-             </div>
-             <div class="flex flex-col items-center gap-2 group">
-                <AngularIcon class="size-8 grayscale group-hover:grayscale-0 transition-all" />
-                <span class="text-[8px] font-mono text-white/20 uppercase">Angular</span>
-             </div>
-             <div class="flex flex-col items-center gap-2 group">
-                <NetIcon class="size-8 grayscale group-hover:grayscale-0 transition-all" />
-                <span class="text-[8px] font-mono text-white/20 uppercase">.Net</span>
-             </div>
-          </div>
-        </div>
-        
-        <div>
-          <h4 class="text-blue-300/30 text-[9px] font-mono uppercase tracking-[0.2em] mb-6 border-b border-white/5 pb-2">Data & Infra</h4>
-          <div class="grid grid-cols-3 gap-6">
-             <div class="flex flex-col items-center gap-2 group">
-                <SqlIcon class="size-8 grayscale group-hover:grayscale-0 transition-all" />
-                <span class="text-[8px] font-mono text-white/20 uppercase">Sql</span>
-             </div>
-             <div class="flex flex-col items-center gap-2 group">
-                <PowerbiIcon class="size-8 grayscale group-hover:grayscale-0 transition-all" />
-                <span class="text-[8px] font-mono text-white/20 uppercase">Pbi</span>
-             </div>
-             <div class="flex flex-col items-center gap-2 group">
-                <JenkinsIcon class="size-8 grayscale group-hover:grayscale-0 transition-all" />
-                <span class="text-[8px] font-mono text-white/20 uppercase">Ci/cd</span>
-             </div>
-          </div>
-        </div>
+  <div class="space-y-12">
+    <div>
+      <h4 class="text-white text-[10px] font-black uppercase tracking-[0.3em] mb-8 border-b-2 border-white pb-2 text-center md:text-left">
+        Frontend & Frameworks
+      </h4>
+      <div class="grid grid-cols-3 gap-y-10">
+         <div class="flex flex-col items-center gap-3 group">
+            <ReactIcon class="size-10 animate-pulse transition-all" />
+            <span class="text-[9px] font-black text-white uppercase tracking-tighter">React</span>
+         </div>
+         
+         <div class="flex flex-col items-center gap-3 group">
+  <AngularIcon class="size-10 text-[#ff4d4d] fill-current animate-pulse filter drop-shadow-[0_0_8px_rgba(255,77,77,0.8)] transition-all group-hover:scale-110" />
+  <span class="text-[9px] font-black text-white uppercase tracking-tighter">Angular</span>
+</div>
+
+         <div class="flex flex-col items-center gap-3 group">
+            <NetIcon class="size-10 animate-pulse delay-100 transition-all" />
+            <span class="text-[9px] font-black text-white uppercase tracking-tighter">.Net</span>
+         </div>
+
+         <div class="flex flex-col items-center gap-3 group">
+            <DjangoIcon class="size-10 animate-pulse delay-150 transition-all" />
+            <span class="text-[9px] font-black text-white uppercase tracking-tighter">Django</span>
+         </div>
+
+         <div class="flex flex-col items-center gap-3 group">
+            <PythonIcon class="size-10 animate-pulse delay-200 filter brightness-125 contrast-125 transition-all" />
+            <span class="text-[9px] font-black text-white uppercase tracking-tighter">Python</span>
+         </div>
+
+      <div class="flex flex-col items-center gap-3 group">
+  <NodeIcon 
+    class="size-10 animate-pulse delay-75 filter drop-shadow-[0_0_15px_rgba(51,255,51,0.8)] brightness-110 contrast-125 transition-all group-hover:scale-110" 
+    style="color: #33ff33;" 
+  />
+  <span class="text-[9px] font-black text-white uppercase tracking-tighter">Node</span>
+</div>
       </div>
-    </section>
+    </div>
+    
+    <div>
+      <h4 class="text-white text-[10px] font-black uppercase tracking-[0.3em] mb-8 border-b-2 border-white pb-2 text-center md:text-left">
+        Data & Infra
+      </h4>
+      <div class="grid grid-cols-3 gap-y-10">
+         <div class="flex flex-col items-center gap-3 group">
+            <SqlIcon class="size-10 animate-pulse transition-all" />
+            <span class="text-[9px] font-black text-white uppercase tracking-tighter">Sql</span>
+         </div>
 
-    <section class="bg-white/5 border border-white/10 rounded-3xl p-6">
-      <h2 class="text-white/40 font-bold mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest">
-        // Certificados
-      </h2>
-      <ul class="space-y-3">
-        {["QA Manager (UTN)", "Fullstack (Infor.)", "Data Science (LI)", "ASP.NET & Angular"].map((cert) => (
-          <li class="flex items-center justify-between p-3 rounded-xl bg-black/40 border border-white/5 group hover:border-yellow-200/30 transition-all">
-            <span class="text-[9px] text-gray-400 group-hover:text-white truncate pr-2">{cert}</span>
-            <button class="text-[7px] font-bold text-yellow-200 border border-yellow-200/20 px-2 py-1 rounded hover:bg-yellow-200 hover:text-black transition-all shrink-0">
-              VER
-            </button>
-          </li>
-        ))}
-      </ul>
-    </section>
-  </div>
+         <div class="flex flex-col items-center gap-3 group">
+            <MongoIcon class="size-10 animate-pulse delay-75 filter brightness-[1.8] contrast-125 transition-all" />
+            <span class="text-[9px] font-black text-white uppercase tracking-tighter">Mongo</span>
+         </div>
 
-  <div class="lg:col-span-12 order-last pt-8 border-t border-white/10 mt-4">
-    <section>
-      <h3 class="text-white/40 font-bold mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest">
-        // Hobbies_y_Pasiones
-      </h3>
-      <div class="flex flex-wrap gap-3 justify-center md:justify-start">
-        <div class="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-all group cursor-default">
-          <span class="text-lg group-hover:rotate-12 transition-transform">⚽</span>
-          <span class="text-xs text-gray-300 font-medium">Fútbol</span>
-        </div>
-        <div class="flex items-center gap-3 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-all group cursor-default">
-          <span class="text-lg group-hover:rotate-12 transition-transform">🎸</span>
-          <span class="text-xs text-gray-300 font-medium">Rock</span>
-        </div>
-        <div class="flex items-center gap-3 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-all group cursor-default">
-          <span class="text-lg group-hover:-rotate-12 transition-transform">🧉</span>
-          <span class="text-lg group-hover:rotate-12 transition-transform">🍺</span>
-          <span class="text-xs text-gray-300 font-medium">Mates y Birras</span>
-        </div>
+         <div class="flex flex-col items-center gap-3 group">
+            <PowerbiIcon class="size-10 animate-pulse delay-100 transition-all" />
+            <span class="text-[9px] font-black text-white uppercase tracking-tighter">Pbi</span>
+         </div>
+
+         <div class="flex flex-col items-center gap-3 group">
+            <GrafanaIcon class="size-10 animate-pulse delay-150 transition-all" />
+            <span class="text-[9px] font-black text-white uppercase tracking-tighter">Grafana</span>
+         </div>
+
+         <div class="flex flex-col items-center gap-3 group">
+            <FirebaseIcon class="size-10 animate-pulse delay-200 transition-all" />
+            <span class="text-[9px] font-black text-white uppercase tracking-tighter">Firebase</span>
+         </div>
+
+         <div class="flex flex-col items-center gap-3 group">
+            <GitIcon class="size-10 animate-pulse delay-300 transition-all" />
+            <span class="text-[9px] font-black text-white uppercase tracking-tighter">Git</span>
+         </div>
       </div>
-    </section>
+    </div>
   </div>
+</section>
 
+<div class="mt-16 space-y-4 w-full max-w-[320px]">
+  <section class="p-5 bg-[#0a0a0a] border-2 border-white/30 rounded-3xl shadow-2xl">
+    <h3 class="text-[#FFFFFF] font-black mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest">
+      <span class="text-yellow-200">#</span> HOBBIES
+    </h3>
+    
+    <div class="flex flex-col gap-3">
+      <div class="flex items-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-xl hover:border-white/30 transition-all cursor-default group">
+        <span class="text-base group-hover:rotate-12 transition-transform">⚽</span>
+        <span class="text-[10px] text-[#FFFFFF] font-black uppercase tracking-tight">Fútbol</span>
+      </div>
+
+      <div class="flex items-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-xl hover:border-white/30 transition-all cursor-default group">
+        <span class="text-base group-hover:rotate-12 transition-transform">🎸</span>
+        <span class="text-[10px] text-[#FFFFFF] font-black uppercase tracking-tight">Rock</span>
+      </div>
+
+      <div class="flex items-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-xl hover:border-white/30 transition-all cursor-default group">
+        <div class="flex gap-1">
+          <span class="text-base group-hover:-rotate-12 transition-transform">🧉</span>
+          <span class="text-base group-hover:rotate-12 transition-transform">🍺</span>
+        </div>
+        <span class="text-[10px] text-[#FFFFFF] font-black uppercase tracking-tight">Mates y Birras</span>
+      </div>
+    </div>
+  </section>
+</div>
+</div>
+  </div>
 </div>
