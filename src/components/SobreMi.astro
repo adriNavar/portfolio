@@ -16,6 +16,8 @@ import PowerbiIcon from "./icons/Powerbi.astro";
 import GrafanaIcon from "./icons/Grafana.astro";
 import FirebaseIcon from "./icons/Firebase.astro";
 import DjangoIcon from "./icons/Django.astro";  
+import JavaSIcon from "./icons/JavaS.astro";
+import VercelIcon from "./icons/Vercel.astro";
 ---
 <style>
   /* Animación de titileo agresiva para que se note el parpadeo */
@@ -94,7 +96,7 @@ import DjangoIcon from "./icons/Django.astro";
 <div class="flex flex-col gap-6 w-full max-w-[320px]">
   <section class="p-5 bg-[#0a0a0a] border-2 border-white/30 rounded-3xl shadow-2xl">
     <h3 class="text-[#FFFFFF] font-black mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest">
-      <span class="text-yellow-200">//</span> CERTIFICACIONES_OFICIALES
+      <span class="text-yellow-200"></span> CERTIFICACIONES
     </h3>
     
     <div class="flex flex-col gap-3">
@@ -102,7 +104,8 @@ import DjangoIcon from "./icons/Django.astro";
         "QA MANAGEMENT", 
         "FULLSTACK DEVELOPER", 
         "DATA SCIENCE", 
-        "ASP.NET & MICROSERVICES"
+        "ASP.NET & MICROSERVICES",
+        "POSTGRESQL"
       ].map((cert) => (
         <div class="flex items-center justify-between px-4 py-3 bg-white/5 border border-white/10 rounded-xl group hover:border-white/30 transition-all">
           <span class="text-[10px] text-[#FFFFFF] font-black uppercase tracking-tight truncate pr-2">
@@ -129,111 +132,164 @@ import DjangoIcon from "./icons/Django.astro";
 
   <div class="space-y-12">
     <div>
-      <h4 class="text-white text-[10px] font-black uppercase tracking-[0.3em] mb-8 border-b-2 border-white pb-2 text-center md:text-left">
+      <h4 class="text-[#FFFFFF] text-[10px] font-black uppercase tracking-[0.3em] mb-8 border-b-2 border-white pb-2 text-center md:text-left">
         Frontend & Frameworks
       </h4>
       <div class="grid grid-cols-3 gap-y-10">
-         <div class="flex flex-col items-center gap-3 group">
-            <ReactIcon class="size-10 animate-pulse transition-all" />
-            <span class="text-[9px] font-black text-white uppercase tracking-tighter">React</span>
-         </div>
-         
-         <div class="flex flex-col items-center gap-3 group">
-  <AngularIcon class="size-10 text-[#ff4d4d] fill-current animate-pulse filter drop-shadow-[0_0_8px_rgba(255,77,77,0.8)] transition-all group-hover:scale-110" />
-  <span class="text-[9px] font-black text-white uppercase tracking-tighter">Angular</span>
-</div>
-
-         <div class="flex flex-col items-center gap-3 group">
-            <NetIcon class="size-10 animate-pulse delay-100 transition-all" />
-            <span class="text-[9px] font-black text-white uppercase tracking-tighter">.Net</span>
-         </div>
-
-         <div class="flex flex-col items-center gap-3 group">
-            <DjangoIcon class="size-10 animate-pulse delay-150 transition-all" />
-            <span class="text-[9px] font-black text-white uppercase tracking-tighter">Django</span>
-         </div>
-
-         <div class="flex flex-col items-center gap-3 group">
-            <PythonIcon class="size-10 animate-pulse delay-200 filter brightness-125 contrast-125 transition-all" />
-            <span class="text-[9px] font-black text-white uppercase tracking-tighter">Python</span>
-         </div>
-
-      <div class="flex flex-col items-center gap-3 group">
-  <NodeIcon 
-    class="size-10 animate-pulse delay-75 filter drop-shadow-[0_0_15px_rgba(51,255,51,0.8)] brightness-110 contrast-125 transition-all group-hover:scale-110" 
-    style="color: #33ff33;" 
-  />
-  <span class="text-[9px] font-black text-white uppercase tracking-tighter">Node</span>
-</div>
+        <div class="flex flex-col items-center gap-3 group">
+          <ReactIcon class="size-10 animate-pulse transition-all" />
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">React</span>
+        </div>
+        <div class="flex flex-col items-center gap-3 group">
+          <AngularIcon class="size-10 text-[#ff4d4d] fill-current animate-pulse filter drop-shadow-[0_0_8px_rgba(255,77,77,0.8)] transition-all group-hover:scale-110" />
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">Angular</span>
+        </div>
+        <div class="flex flex-col items-center gap-3 group">
+          <NetIcon class="size-10 animate-pulse delay-100 transition-all" />
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">.Net</span>
+        </div>
+        <div class="flex flex-col items-center gap-3 group">
+          <NodeIcon class="size-10 animate-pulse delay-75 filter drop-shadow-[0_0_15px_rgba(51,255,51,0.8)] brightness-110 contrast-125 transition-all group-hover:scale-110" style="color: #33ff33;" />
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">Node</span>
+        </div>
+        <div class="flex flex-col items-center gap-3 group">
+          <PythonIcon class="size-10 animate-pulse delay-200 filter brightness-125 contrast-125 transition-all" />
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">Python</span>
+        </div>
+        <div class="flex flex-col items-center gap-3 group">
+          <DjangoIcon class="size-10 animate-pulse delay-150 transition-all" />
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">Django</span>
+        </div>
+        <div class="flex flex-col items-center gap-3 group">
+          <JavaSIcon class="size-10 animate-pulse delay-150 transition-all" />
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">JS</span>
+        </div>
+        <div class="flex flex-col items-center gap-3 group">
+          <div class="size-10 flex items-center justify-center bg-[#3178c6] rounded-lg animate-pulse delay-75 font-black text-white text-[12px]">TS</div>
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">TypeScript</span>
+        </div> 
       </div>
     </div>
-    
+
     <div>
-      <h4 class="text-white text-[10px] font-black uppercase tracking-[0.3em] mb-8 border-b-2 border-white pb-2 text-center md:text-left">
-        Data & Infra
+      <h4 class="text-[#FFFFFF] text-[10px] font-black uppercase tracking-[0.3em] mb-8 border-b-2 border-white pb-2 text-center md:text-left">
+        Data & Management
       </h4>
       <div class="grid grid-cols-3 gap-y-10">
-         <div class="flex flex-col items-center gap-3 group">
-            <SqlIcon class="size-10 animate-pulse transition-all" />
-            <span class="text-[9px] font-black text-white uppercase tracking-tighter">Sql</span>
-         </div>
+        <div class="flex flex-col items-center gap-3 group">
+          <SqlIcon class="size-10 animate-pulse transition-all" />
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">PostgreSQL</span>
+        </div>
+        
+        <div class="flex flex-col items-center gap-3 group">
+          <MongoIcon class="size-10 animate-pulse delay-75 filter brightness-[1.8] contrast-125 transition-all" />
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">MongoDB</span>
+        </div>
+        <div class="flex flex-col items-center gap-3 group">
+          <FirebaseIcon class="size-10 animate-pulse delay-200 transition-all" />
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">Firebase</span>
+        </div>
+      </div>
+    </div>
 
+    <div>
+      <h4 class="text-[#FFFFFF] text-[10px] font-black uppercase tracking-[0.3em] mb-8 border-b-2 border-white pb-2 text-center md:text-left">
+        Infra & Visualization
+      </h4>
+      <div class="grid grid-cols-3 gap-y-10">
+        <div class="flex flex-col items-center gap-3 group">
+          <PowerbiIcon class="size-10 animate-pulse transition-all" />
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">Power BI</span>
+        </div>
+        <div class="flex flex-col items-center gap-3 group">
+          <GrafanaIcon class="size-10 animate-pulse delay-75 transition-all" />
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">Grafana</span>
+        </div>
+        <div class="flex flex-col items-center gap-3 group">
+          <N8nIcon class="size-10 animate-pulse delay-100 transition-all" />
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">n8n</span>
+        </div>
+        <div class="flex flex-col items-center gap-3 group">
+          <JenkinsIcon class="size-10 animate-pulse delay-150 transition-all" />
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">Jenkins</span>
+        </div>
+        <div class="flex flex-col items-center gap-3 group">
+          <GitIcon class="size-10 animate-pulse delay-200 transition-all" />
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter text-center">Git / GitHub</span>
+        </div>
          <div class="flex flex-col items-center gap-3 group">
-            <MongoIcon class="size-10 animate-pulse delay-75 filter brightness-[1.8] contrast-125 transition-all" />
-            <span class="text-[9px] font-black text-white uppercase tracking-tighter">Mongo</span>
-         </div>
+          <VercelIcon class="size-10 animate-pulse delay-200 transition-all" />
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter text-center">Vercel</span>
+        </div>
+        <div class="flex flex-col items-center gap-3 group">
+          <div class="size-10 flex items-center justify-center bg-[#2b579a] rounded-lg animate-pulse delay-300 font-black text-white text-[10px]">IIS</div>
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">IIS</span>
+        </div>
+      </div>
+    </div>
 
-         <div class="flex flex-col items-center gap-3 group">
-            <PowerbiIcon class="size-10 animate-pulse delay-100 transition-all" />
-            <span class="text-[9px] font-black text-white uppercase tracking-tighter">Pbi</span>
-         </div>
-
-         <div class="flex flex-col items-center gap-3 group">
-            <GrafanaIcon class="size-10 animate-pulse delay-150 transition-all" />
-            <span class="text-[9px] font-black text-white uppercase tracking-tighter">Grafana</span>
-         </div>
-
-         <div class="flex flex-col items-center gap-3 group">
-            <FirebaseIcon class="size-10 animate-pulse delay-200 transition-all" />
-            <span class="text-[9px] font-black text-white uppercase tracking-tighter">Firebase</span>
-         </div>
-
-         <div class="flex flex-col items-center gap-3 group">
-            <GitIcon class="size-10 animate-pulse delay-300 transition-all" />
-            <span class="text-[9px] font-black text-white uppercase tracking-tighter">Git</span>
-         </div>
+    <div>
+      <h4 class="text-[#FFFFFF] text-[10px] font-black uppercase tracking-[0.3em] mb-8 border-b-2 border-white pb-2 text-center md:text-left">
+        Agile & Project Management
+      </h4>
+      <div class="grid grid-cols-3 gap-y-10">
+        <div class="flex flex-col items-center gap-3 group">
+          <div class="size-10 flex items-center justify-center bg-yellow-500 rounded-lg animate-pulse font-black text-black text-[10px]">AGILE</div>
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">SRUM</span>
+        </div>
+        <div class="flex flex-col items-center gap-3 group">
+          <div class="size-10 flex items-center justify-center bg-blue-600 rounded-lg animate-pulse delay-100 font-black text-white text-[10px]">TRELLO</div>
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">TRELLO</span>
+        </div>
+        <div class="flex flex-col items-center gap-3 group">
+          <div class="size-10 flex items-center justify-center bg-[#0052cc] rounded-lg animate-pulse delay-200 font-black text-white text-[10px]">JIRA</div>
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter text-center">JIRA</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="mt-16 space-y-4 w-full max-w-[320px]">
-  <section class="p-5 bg-[#0a0a0a] border-2 border-white/30 rounded-3xl shadow-2xl">
-    <h3 class="text-[#FFFFFF] font-black mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest">
-      <span class="text-yellow-200">#</span> HOBBIES
-    </h3>
-    
-    <div class="flex flex-col gap-3">
-      <div class="flex items-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-xl hover:border-white/30 transition-all cursor-default group">
-        <span class="text-base group-hover:rotate-12 transition-transform">⚽</span>
-        <span class="text-[10px] text-[#FFFFFF] font-black uppercase tracking-tight">Fútbol</span>
-      </div>
 
-      <div class="flex items-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-xl hover:border-white/30 transition-all cursor-default group">
-        <span class="text-base group-hover:rotate-12 transition-transform">🎸</span>
-        <span class="text-[10px] text-[#FFFFFF] font-black uppercase tracking-tight">Rock</span>
-      </div>
-
-      <div class="flex items-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-xl hover:border-white/30 transition-all cursor-default group">
-        <div class="flex gap-1">
-          <span class="text-base group-hover:-rotate-12 transition-transform">🧉</span>
-          <span class="text-base group-hover:rotate-12 transition-transform">🍺</span>
-        </div>
-        <span class="text-[10px] text-[#FFFFFF] font-black uppercase tracking-tight">Mates y Birras</span>
-      </div>
-    </div>
-  </section>
-</div>
 </div>
   </div>
+<section class="mt-8 w-full p-6 bg-[#0a0a0a] border-2 border-white/30 rounded-3xl shadow-2xl mb-12">
+  <h3 class="text-yellow-200 font-black mb-6 flex items-center gap-2 font-mono text-[9px] uppercase tracking-widest">
+    <span class="text-white">#</span> HOBBIES_Y_PASIONES
+  </h3>
+  
+  <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+    <div class="flex items-center justify-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-2xl hover:border-white/40 hover:bg-white/10 transition-all group cursor-default">
+      <span class="text-xl group-hover:scale-110 transition-transform">⚽</span>
+      <span class="text-[9px] text-[#FFFFFF] font-black uppercase tracking-widest">Fútbol</span>
+    </div>
+
+    <div class="flex items-center justify-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-2xl hover:border-white/40 hover:bg-white/10 transition-all group cursor-default">
+      <span class="text-xl group-hover:scale-110 transition-transform">🎸</span>
+      <span class="text-[9px] text-[#FFFFFF] font-black uppercase tracking-widest">Rock</span>
+    </div>
+
+    <div class="flex items-center justify-center gap-3 px-2 py-3 bg-white/5 border border-white/10 rounded-2xl hover:border-white/40 hover:bg-white/10 transition-all group cursor-default">
+      <span class="text-xl group-hover:scale-110 transition-transform">🥩</span>
+      <span class="text-[9px] text-[#FFFFFF] font-black uppercase tracking-widest">Asado</span>
+    </div>
+
+    <div class="flex items-center justify-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-2xl hover:border-white/40 hover:bg-white/10 transition-all group cursor-default">
+      <span class="text-xl group-hover:scale-110 transition-transform">🧉</span>
+      <span class="text-[9px] text-[#FFFFFF] font-black uppercase tracking-widest">MATES</span>
+    </div>
+
+    <div class="flex items-center justify-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-2xl hover:border-white/40 hover:bg-white/10 transition-all group cursor-default">
+      <div class="flex gap-1 text-lg">
+        <span>🍺</span>
+      </div>
+      <span class="text-[9px] text-[#FFFFFF] font-black uppercase tracking-widest text-center">Birras</span>
+    </div>
+
+    
+  </div>
+</section>
 </div>
+
+
+
