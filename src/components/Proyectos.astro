@@ -63,41 +63,42 @@ const PROYECTOS = [
   {
     titulo: "El Promesero - Alfajores Artesanales",
     categoria: "desarrollo",
-    descripcion: "Desarrollo basado en curso de stack MERN. Se realizó un rediseño adaptando a los requisitos del cliente (imagen de fondo, colores, tipografías, etc).",
+    descripcion: "Desarrollo basado en curso de stack MERN. Se realizó un rediseño adaptando a los requisitos del cliente.",
     tags: [TAGS.MONGO, TAGS.REACT, TAGS.NODE],
-    imagen: "src/img/prome1.jpg",
+    imagenes: ["/img/prome1.jpg", "/img/prome2.jpg", "/img/prome3.jpg", "/img/prome4.jpg"],
     link: "#",
     github: "#"
   },
   {
     titulo: "Jota & Cía - Estudio Contable",
     categoria: "desarrollo",
-    descripcion: "Plataforma web para gestión contable con integración de pagos automatizados mediante la API de Mercado Pago y base de datos NoSQL.",
+    descripcion: "Plataforma web para gestión contable con integración de Mercado Pago.",
     tags: [TAGS.REACT, TAGS.MONGO, TAGS.MP],
-    imagen: "src/img/jota2.jpg",
+    imagenes: ["/img/jota.jpg", "/img/jota2.jpg", "/img/jota3.jpg"],
     link: "#",
     github: "#"
   },
   {
     titulo: "Sistema de Puntos de Venta",
     categoria: "desarrollo",
-    descripcion: "Software de gestión comercial integral. Permite el control de inventario, registro de ventas en tiempo real y gestión de clientes mediante una arquitectura escalable.",
+    descripcion: "Software de gestión comercial integral con arquitectura escalable.",
     tags: [TAGS.ANGULAR, TAGS.NODE, TAGS.FIREBASE],
-    imagen: "/proyectos/pos.webp", // Podés dejarlo así hasta tener la foto
+    imagenes: ["/img/venta1.jpg", "/img/venta2.jpg"],
     link: "#",
     github: "#"
   },
   {
     titulo: "Blog de Recetas Educativo",
     categoria: "desarrollo",
-    descripcion: "Proyecto final de curso enfocado en el desarrollo de un CMS de recetas. Implementación de CRUD completo, autenticación de usuarios y administración de base de datos relacional con SQLite, desplegado exitosamente en PythonAnywhere.",
+    descripcion: "Proyecto final de curso enfocado en el desarrollo de un CMS de recetas.",
     tags: [TAGS.PYTHON, TAGS.DJANGO, TAGS.SQLITE],
-    imagen: "src/img/recetas3.jpg",
-    link: "https://tu-usuario.pythonanywhere.com", // Aquí puedes poner el link real
+    imagenes: ["/img/recetas.jpg", "/img/recetas2.jpg", "/img/recetas3.jpg"],
+    link: "https://tu-usuario.pythonanywhere.com",
     github: "#"
   }
 ]
 ---
+
 <div class="flex flex-wrap gap-4 mb-10 text-xs font-mono">
   <button class="filter-btn text-yellow-200" data-category="todos">[*] TODOS</button>
   <button class="filter-btn text-white/40" data-category="desarrollo">[1] DESARROLLO WEB</button>
@@ -106,7 +107,8 @@ const PROYECTOS = [
 
 <div class="relative w-full max-w-4xl mx-auto px-2 md:px-10">
   <div class="overflow-hidden rounded-2xl border border-white/10 bg-[#0d1624]/60 backdrop-blur-md">
-    <div id="main-projects-slider" class="flex transition-transform duration-500 ease-in-out w-full">
+    
+    <div id="main-projects-slider" class="flex transition-transform duration-500 ease-in-out">
       {PROYECTOS.map((proy) => (
         <div class="proyecto-card w-full flex-shrink-0 p-4 md:p-10">
            <ProyectosItem {...proy} />
@@ -116,12 +118,16 @@ const PROYECTOS = [
     
     <div class="flex justify-center gap-2 pb-6">
       {PROYECTOS.map((_, index) => (
-        <div class="project-dot h-1 w-1 bg-white/20 rounded-full transition-all" data-index={index}></div>
+        <button 
+          class="project-dot h-1 w-3 bg-white/20 rounded-full transition-all cursor-pointer" 
+          data-index={index}
+          aria-label={`Ir al proyecto ${index + 1}`}
+        ></button>
       ))}
     </div>
   </div>
 
-  <button id="prev-project" class="absolute -left-1 md:-left-4 top-1/2 -translate-y-1/2 size-10 md:size-12 bg-yellow-200 rounded-full flex items-center justify-center text-black z-40 shadow-lg active:scale-90">
+  <button id="prev-project" class="absolute -left-1 md:-left-4 top-1/2 -translate-y-1/2 size-10 md:size-12 bg-yellow-200 rounded-full flex items-center justify-center text-black z-40 shadow-lg active:scale-95">
     <svg class="size-5 md:size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M15 19l-7-7 7-7"/></svg>
   </button>
   
@@ -130,74 +136,137 @@ const PROYECTOS = [
   </button>
 </div>
 
-  <div class="flex justify-center gap-2 mt-6">
-    {PROYECTOS.map((_, index) => (
-      <div 
-        class={`project-dot h-1 transition-all duration-300 rounded-full ${index === 0 ? 'w-8 bg-yellow-200' : 'w-2 bg-white/10'}`}
-        data-index={index}
-      ></div>
-    ))}
-  </div>
-</div>
-
-<style>
-  /* Animación para que las flechas titilen sutilmente */
-  @keyframes subtle-pulse {
-    0%, 100% { opacity: 0.3; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.1); }
-  }
-  .animate-subtle-pulse {
-    animation: subtle-pulse 2s infinite ease-in-out;
-  }
-  /* Quitamos la animación cuando el usuario interactúa */
-  #next-project:hover svg, #prev-project:hover svg {
-    animation: none;
-    opacity: 1;
-  }
-</style>
-
-<script>
+<script is:inline>
   function initProjectSlider() {
     const slider = document.getElementById('main-projects-slider');
     const nextBtn = document.getElementById('next-project');
     const prevBtn = document.getElementById('prev-project');
-    const dots = document.querySelectorAll('.project-dot');
     const cards = document.querySelectorAll('.proyecto-card');
+    const dots = document.querySelectorAll('.project-dot');
+
+    if (!slider || cards.length === 0) return;
 
     let currentIndex = 0;
+    const total = cards.length;
 
     const updateSlider = () => {
-      if (slider) {
-        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-      }
+      // Mueve el slider exactamente el 100% por cada índice
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
       
-      // CAMBIO DE COLOR DINÁMICO
-      dots.forEach((dot, idx) => {
-        if (idx === currentIndex) {
-          // Proyecto activo: Barra larga y amarilla brillante
-          dot.classList.replace('w-3', 'w-10');
-          dot.classList.replace('bg-white/20', 'bg-yellow-200');
+      // Actualiza visualmente los dots
+      dots.forEach((dot) => {
+        const dotIndex = parseInt(dot.getAttribute('data-index'));
+        if (dotIndex === currentIndex) {
+          dot.style.width = '2.5rem';
+          dot.style.backgroundColor = '#fef08a';
           dot.classList.add('shadow-[0_0_15px_rgba(254,240,138,0.5)]');
         } else {
-          // Proyectos inactivos: Puntos discretos
-          dot.classList.replace('w-10', 'w-3');
-          dot.classList.replace('bg-yellow-200', 'bg-white/20');
+          dot.style.width = '0.75rem';
+          dot.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
           dot.classList.remove('shadow-[0_0_15px_rgba(254,240,138,0.5)]');
         }
       });
     };
 
-    nextBtn?.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % cards.length;
-      updateSlider();
+    // Flecha Siguiente con loop infinito
+   nextBtn.onclick = () => {
+
+  currentIndex = (currentIndex + 1) % total; 
+  updateSlider();
+};
+    // Flecha Anterior con loop infinito
+    prevBtn.onclick = () => {
+  // Si currentIndex es 0 (el primero) -> (0 - 1 + 4) % 4 = 3 (va al último)
+  currentIndex = (currentIndex - 1 + total) % total; 
+  updateSlider();
+};
+    // Dots clickeables
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        currentIndex = parseInt(dot.getAttribute('data-index'));
+        updateSlider();
+      });
     });
 
-    prevBtn?.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-      updateSlider();
+    // Intercambio de imágenes (Switcher)
+    cards.forEach(card => {
+      const mainImg = card.querySelector('.js-main-img');
+      const thumbs = card.querySelectorAll('.js-thumb');
+      
+      thumbs.forEach(thumb => {
+        thumb.addEventListener('click', (e) => {
+          e.stopPropagation(); 
+          const newSrc = thumb.getAttribute('src');
+          if (mainImg) {
+            mainImg.style.opacity = '0';
+            setTimeout(() => {
+              mainImg.setAttribute('src', newSrc);
+              mainImg.style.opacity = '1';
+            }, 200);
+          }
+        });
+      });
     });
   }
 
   document.addEventListener('astro:page-load', initProjectSlider);
   initProjectSlider();
 </script>
+
+<style>
+  /* 1. Contenedor del Slider: Asegura que sea una tira larga */
+  #main-projects-slider {
+    display: flex;
+    width: 100%;
+    will-change: transform;
+    cursor: grab;
+  }
+
+  #main-projects-slider:active {
+    cursor: grabbing;
+  }
+
+  /* 2. Cada Tarjeta: Obliga a que ocupe el 100% del contenedor padre */
+  .proyecto-card {
+    width: 100%;
+    flex-shrink: 0; /* Evita que las tarjetas se achiquen */
+  }
+
+  /* 3. Animación de las Flechas (Pulso sutil) */
+  @keyframes subtle-pulse {
+    0%, 100% { 
+      opacity: 0.8; 
+      transform: translateY(-50%) scale(1); 
+    }
+    50% { 
+      opacity: 1; 
+      transform: translateY(-50%) scale(1.1); 
+      box-shadow: 0 0 20px rgba(254, 240, 138, 0.4);
+    }
+  }
+
+  #next-project, #prev-project {
+    animation: subtle-pulse 3s infinite ease-in-out;
+    transition: all 0.3s ease;
+  }
+
+  /* Quitamos animación al pasar el mouse para que el usuario tenga control total */
+  #next-project:hover, #prev-project:hover {
+    animation: none;
+    transform: translateY(-50%) scale(1.15);
+    background-color: #fef08a; /* yellow-200 */
+  }
+
+  /* 4. Estilo de los Dots (Paginación) */
+  .project-dot {
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* 5. Ajuste para Celulares */
+  @media (max-width: 768px) {
+    #next-project, #prev-project {
+      size: 2.5rem; /* size-10 */
+    }
+  }
+</style>

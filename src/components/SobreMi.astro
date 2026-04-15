@@ -18,6 +18,8 @@ import FirebaseIcon from "./icons/Firebase.astro";
 import DjangoIcon from "./icons/Django.astro";  
 import JavaSIcon from "./icons/JavaS.astro";
 import VercelIcon from "./icons/Vercel.astro";
+import CIcon from "./icons/C.astro";
+
 ---
 <style>
   /* Animación de titileo agresiva para que se note el parpadeo */
@@ -55,7 +57,7 @@ import VercelIcon from "./icons/Vercel.astro";
             <div class="relative group mx-auto md:mx-0 max-w-[180px]">
                 <div class="absolute -inset-1 bg-gradient-to-r from-yellow-200 to-orange-500 rounded-2xl blur opacity-30"></div>
                 <img 
-                    src="src/img/adri.jpg" 
+                    src="img/adri.jpg" 
                     alt="Adrián Navarro" 
                     class="relative w-full aspect-square object-cover rounded-2xl border-4 border-white/30 grayscale-0 md:grayscale hover:grayscale-0 transition-all duration-500 shadow-2xl"
                 />
@@ -94,34 +96,81 @@ import VercelIcon from "./icons/Vercel.astro";
 </section>
 
 <div class="flex flex-col gap-6 w-full max-w-[320px]">
-  <section class="p-5 bg-[#0a0a0a] border-2 border-white/30 rounded-3xl shadow-2xl">
-    <h3 class="text-[#FFFFFF] font-black mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest">
-      <span class="text-yellow-200"></span> CERTIFICACIONES
+<section class="p-5 bg-[#0a0a0a] border-2 border-white/30 rounded-3xl shadow-2xl">
+  <h3 class="text-[#FFFFFF] font-black mb-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest">
+    <span class="text-yellow-200">#</span> CERTIFICACIONES
+  </h3>
+  
+<div class="flex flex-col gap-3">
+  {[
+    "QA MANAGER-UTN", 
+    "DESARROLLO WEB-INFORMATORIO",
+    "ANGULAR,.NET & POSTGRESQL-UDEMY", 
+    "CIENCIA DE DATOS- LINKEDIN", 
+    
+  ].map((cert) => {
+    const excepciones: { [key: string]: string | string[] } = {
+      "DESARROLLO WEB-INFORMATORIO": ["infor.pdf", "infor2.pdf"],
+      "QA MANAGER-UTN": "qa.pdf" ,
+      "ANGULAR,.NET & POSTGRESQL-UDEMY":  ["angular.pdf", ".net.pdf", "postgres.pdf"],
+      "CIENCIA DE DATOS- LINKEDIN":  ["datos1.png", "datos2.png","datos3.png"],
+
+
+    };
+
+    const files = excepciones[cert] || `${cert.toLowerCase().replace(/ /g, '-')}.jpg`;
+    
+    // Generamos las rutas completas para cada archivo individualmente
+    const dataImgValue = Array.isArray(files) 
+      ? files.map(f => `img/${f}`).join(',') 
+      : `img/${files}`;
+    
+    return (
+      <div class="flex items-center justify-between px-4 py-3 bg-white/5 border border-white/10 rounded-xl group hover:border-white/30 transition-all">
+        <span class="text-[10px] text-[#FFFFFF] font-black uppercase tracking-tight truncate pr-2">
+          {cert}
+        </span>
+        <button 
+          class="btn-ver text-[9px] border-2 border-yellow-200 text-yellow-200 px-3 py-1 rounded-lg font-black hover:bg-yellow-200 hover:text-black transition-all shrink-0"
+          data-img={dataImgValue}
+          data-title={cert}
+        >
+          VER {Array.isArray(files) ? `(${files.length})` : ''}
+        </button>
+      </div>
+    );
+  })}
+</div>
+</section>
+<div class="lg:col-span-7 flex flex-col gap-6">
+<section class="order-[999] lg:order-none p-4 bg-[#0a0a0a] border-2 border-white/30 rounded-3xl shadow-2xl">
+
+    <h3 class="text-yellow-200 font-black mb-3 flex items-center gap-2 font-mono text-[9px] uppercase tracking-widest">
+      <span class="text-white">#</span> HOBBIES_Y_PASIONES
     </h3>
     
-    <div class="flex flex-col gap-3">
+    <div class="grid grid-cols-2 gap-2">
       {[
-        "QA MANAGEMENT", 
-        "FULLSTACK DEVELOPER", 
-        "DATA SCIENCE", 
-        "ASP.NET & MICROSERVICES",
-        "POSTGRESQL"
-      ].map((cert) => (
-        <div class="flex items-center justify-between px-4 py-3 bg-white/5 border border-white/10 rounded-xl group hover:border-white/30 transition-all">
-          <span class="text-[10px] text-[#FFFFFF] font-black uppercase tracking-tight truncate pr-2">
-            {cert}
-          </span>
-          <button class="text-[9px] border-2 border-yellow-200 text-yellow-200 px-3 py-1 rounded-lg font-black hover:bg-yellow-200 hover:text-black transition-all shrink-0">
-            VER
-          </button>
+        { emoji: "⚽", label: "Fútbol" },
+        { emoji: "🎸", label: "Rock" },
+        { emoji: "🥩", label: "Asado" },
+        { emoji: "🧉🍺", label: "Mates y Birra" } 
+      ].map(hobby => (
+        <div class="flex items-center gap-2 px-2 py-1.5 bg-white/5 border border-white/10 rounded-xl hover:border-white/40 transition-all group cursor-default">
+          <span class="text-base group-hover:scale-110 transition-transform">{hobby.emoji}</span>
+          <span class="text-[7px] text-[#FFFFFF] font-black uppercase tracking-tighter">{hobby.label}</span>
         </div>
       ))}
     </div>
   </section>
 
+</div> 
  
 </div>
+
   </div>
+
+
 
   <div class="lg:col-span-5 flex flex-col gap-8">
     
@@ -136,6 +185,11 @@ import VercelIcon from "./icons/Vercel.astro";
         Frontend & Frameworks
       </h4>
       <div class="grid grid-cols-3 gap-y-10">
+         <div class="flex flex-col items-center gap-3 group">
+          <JavaSIcon class="size-10 animate-pulse delay-150 transition-all" />
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">JAVA SCRIPT</span>
+        </div>
+
         <div class="flex flex-col items-center gap-3 group">
           <ReactIcon class="size-10 animate-pulse transition-all" />
           <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">React</span>
@@ -144,14 +198,35 @@ import VercelIcon from "./icons/Vercel.astro";
           <AngularIcon class="size-10 text-[#ff4d4d] fill-current animate-pulse filter drop-shadow-[0_0_8px_rgba(255,77,77,0.8)] transition-all group-hover:scale-110" />
           <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">Angular</span>
         </div>
+         <div class="flex flex-col items-center gap-3 group">
+  <svg 
+    viewBox="0 0 85 107" 
+    class="size-10 animate-pulse transition-all group-hover:scale-110 aspect-square"
+    fill="none" 
+  >
+    <path fill="#fff" d="M27.59 91.136c-4.834-4.418-6.246-13.703-4.232-20.429 3.492 4.241 8.33 5.584 13.342 6.343 7.737 1.17 15.336.732 22.523-2.804.822-.405 1.582-.943 2.48-1.489.675 1.957.85 3.932.615 5.943-.573 4.896-3.01 8.678-6.885 11.545-1.55 1.147-3.19 2.172-4.79 3.253-4.917 3.323-6.247 7.22-4.4 12.888.044.139.084.277.183.614-2.51-1.124-4.344-2.76-5.742-4.911-1.475-2.27-2.177-4.78-2.214-7.498-.019-1.322-.019-2.656-.197-3.96-.434-3.178-1.926-4.601-4.737-4.683-2.884-.084-5.166 1.699-5.771 4.507-.046.216-.113.429-.18.68l.004.001Z"/><path fill="url(#astro_icon_dark__a)" d="M27.59 91.136c-4.834-4.418-6.246-13.703-4.232-20.429 3.492 4.241 8.33 5.584 13.342 6.343 7.737 1.17 15.336.732 22.523-2.804.822-.405 1.582-.943 2.48-1.489.675 1.957.85 3.932.615 5.943-.573 4.896-3.01 8.678-6.885 11.545-1.55 1.147-3.19 2.172-4.79 3.253-4.917 3.323-6.247 7.22-4.4 12.888.044.139.084.277.183.614-2.51-1.124-4.344-2.76-5.742-4.911-1.475-2.27-2.177-4.78-2.214-7.498-.019-1.322-.019-2.656-.197-3.96-.434-3.178-1.926-4.601-4.737-4.683-2.884-.084-5.166 1.699-5.771 4.507-.046.216-.113.429-.18.68l.004.001Z"/><path fill="#fff" d="M0 69.587s14.314-6.973 28.668-6.973L39.49 29.12c.405-1.62 1.588-2.72 2.924-2.72 1.335 0 2.518 1.1 2.924 2.72L56.16 62.614c17 0 28.668 6.973 28.668 6.973S60.514 3.352 60.467 3.219C59.769 1.261 58.591 0 57.003 0H27.827c-1.588 0-2.718 1.261-3.464 3.22C24.311 3.35 0 69.586 0 69.586Z"/>
+    <defs>
+      <linearGradient id="astro_icon_dark__a" x1="22.47" x2="69.145" y1="107" y2="84.947" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#D83333"/><stop offset="1" stop-color="#F041FF"/>
+      </linearGradient>
+    </defs>
+  </svg>
+  <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">Astro</span>
+</div>
+ <div class="flex flex-col items-center gap-3 group">
+          <NodeIcon class="size-10 animate-pulse delay-75 filter drop-shadow-[0_0_15px_rgba(51,255,51,0.8)] brightness-110 contrast-125 transition-all group-hover:scale-110" style="color: #33ff33;" />
+          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">Node</span>
+        </div>
         <div class="flex flex-col items-center gap-3 group">
           <NetIcon class="size-10 animate-pulse delay-100 transition-all" />
           <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">.Net</span>
         </div>
         <div class="flex flex-col items-center gap-3 group">
-          <NodeIcon class="size-10 animate-pulse delay-75 filter drop-shadow-[0_0_15px_rgba(51,255,51,0.8)] brightness-110 contrast-125 transition-all group-hover:scale-110" style="color: #33ff33;" />
-          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">Node</span>
-        </div>
+  <div class="size-10 flex items-center justify-center animate-pulse delay-100 transition-all group-hover:scale-110">
+    <CIcon class="w-full h-auto" />
+  </div>
+  <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">C#</span>
+</div>
         <div class="flex flex-col items-center gap-3 group">
           <PythonIcon class="size-10 animate-pulse delay-200 filter brightness-125 contrast-125 transition-all" />
           <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">Python</span>
@@ -160,14 +235,8 @@ import VercelIcon from "./icons/Vercel.astro";
           <DjangoIcon class="size-10 animate-pulse delay-150 transition-all" />
           <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">Django</span>
         </div>
-        <div class="flex flex-col items-center gap-3 group">
-          <JavaSIcon class="size-10 animate-pulse delay-150 transition-all" />
-          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">JS</span>
-        </div>
-        <div class="flex flex-col items-center gap-3 group">
-          <div class="size-10 flex items-center justify-center bg-[#3178c6] rounded-lg animate-pulse delay-75 font-black text-white text-[12px]">TS</div>
-          <span class="text-[9px] font-black text-[#FFFFFF] uppercase tracking-tighter">TypeScript</span>
-        </div> 
+       
+        
       </div>
     </div>
 
@@ -253,43 +322,45 @@ import VercelIcon from "./icons/Vercel.astro";
 
 </div>
   </div>
-<section class="mt-8 w-full p-6 bg-[#0a0a0a] border-2 border-white/30 rounded-3xl shadow-2xl mb-12">
-  <h3 class="text-yellow-200 font-black mb-6 flex items-center gap-2 font-mono text-[9px] uppercase tracking-widest">
-    <span class="text-white">#</span> HOBBIES_Y_PASIONES
-  </h3>
-  
-  <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-    <div class="flex items-center justify-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-2xl hover:border-white/40 hover:bg-white/10 transition-all group cursor-default">
-      <span class="text-xl group-hover:scale-110 transition-transform">⚽</span>
-      <span class="text-[9px] text-[#FFFFFF] font-black uppercase tracking-widest">Fútbol</span>
-    </div>
 
-    <div class="flex items-center justify-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-2xl hover:border-white/40 hover:bg-white/10 transition-all group cursor-default">
-      <span class="text-xl group-hover:scale-110 transition-transform">🎸</span>
-      <span class="text-[9px] text-[#FFFFFF] font-black uppercase tracking-widest">Rock</span>
-    </div>
-
-    <div class="flex items-center justify-center gap-3 px-2 py-3 bg-white/5 border border-white/10 rounded-2xl hover:border-white/40 hover:bg-white/10 transition-all group cursor-default">
-      <span class="text-xl group-hover:scale-110 transition-transform">🥩</span>
-      <span class="text-[9px] text-[#FFFFFF] font-black uppercase tracking-widest">Asado</span>
-    </div>
-
-    <div class="flex items-center justify-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-2xl hover:border-white/40 hover:bg-white/10 transition-all group cursor-default">
-      <span class="text-xl group-hover:scale-110 transition-transform">🧉</span>
-      <span class="text-[9px] text-[#FFFFFF] font-black uppercase tracking-widest">MATES</span>
-    </div>
-
-    <div class="flex items-center justify-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-2xl hover:border-white/40 hover:bg-white/10 transition-all group cursor-default">
-      <div class="flex gap-1 text-lg">
-        <span>🍺</span>
-      </div>
-      <span class="text-[9px] text-[#FFFFFF] font-black uppercase tracking-widest text-center">Birras</span>
-    </div>
-
-    
-  </div>
-</section>
 </div>
 
 
 
+<script is:inline>
+  const modal = document.getElementById('modal-cert');
+  const modalImg = document.getElementById('modal-img');
+  const modalTitle = document.getElementById('modal-title');
+  const downloadBtn = document.getElementById('download-cert');
+  const closeBtn = document.getElementById('close-modal');
+
+  document.addEventListener('click', (e) => {
+    const button = e.target.closest('.btn-ver');
+    
+    if (button) {
+      const fileUrl = button.getAttribute('data-img');
+      const title = button.getAttribute('data-title');
+      
+      if (fileUrl && modal && modalImg) {
+        modalImg.src = fileUrl;
+        downloadBtn.href = fileUrl;
+        if (modalTitle) modalTitle.innerText = title || "CERTIFICADO_VISUALIZADOR";
+        
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden'; // Bloquea el scroll del fondo
+      }
+    }
+  });
+
+  const closeModal = () => {
+    if (modal) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = 'auto'; // Habilita el scroll
+    }
+  };
+
+  closeBtn?.addEventListener('click', closeModal);
+  modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+</script>
