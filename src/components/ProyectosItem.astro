@@ -6,65 +6,91 @@ interface Props {
   github?: string;
   imagenes: string[];
   tags: { name: string; class: string; icon: any }[];
+  fecha?: string;
 }
 
-const { titulo, descripcion, link, github, imagenes, tags } = Astro.props;
+const { titulo, descripcion, link, github, imagenes, tags, fecha } = Astro.props;
 ---
 
-<article class="flex flex-col items-center text-center gap-6 w-full">
+<div class="flex flex-col md:flex-row gap-8 w-full p-4 md:p-6 text-left">
+  <div class="w-full md:w-3/5">
+    <div class="relative rounded-xl border-2 border-white/10 shadow-2xl overflow-hidden bg-black/40 aspect-video">
+      <img 
+        class="js-modal-main-img w-full h-full object-cover transition-opacity duration-300" 
+        src={imagenes[0]} 
+        alt={titulo} 
+      />
+    </div>
 
-  <div class="flex flex-col gap-3 items-center">
-    <h3 class="text-2xl md:text-4xl font-bold text-yellow-200/90">{titulo}</h3>
-    
-    <p class="text-gray-300 text-sm md:text-base leading-relaxed max-w-prose text-pretty">
-      {descripcion}
-    </p>
-    
-    <ul class="flex flex-wrap gap-2 justify-center">
-      {tags.map((tag) => (
-        <li class={`flex items-center gap-x-1.5 rounded-md text-[10px] font-bold py-1 px-2 border ${tag.class}`}>
-          <tag.icon class="size-3" />
-          {tag.name}
-        </li>
-      ))}
-    </ul>
-  </div>
-
-  <div class="grid grid-cols-12 gap-3 w-full max-w-3xl aspect-video">
-    
- <div class="col-span-9 relative rounded-xl border-2 border-white/20 shadow-2xl overflow-hidden bg-black/40">
-  <img 
-    class="js-main-img w-full h-full object-cover transition-opacity duration-300" 
-    src={imagenes[0]} 
-    alt={titulo} 
-  />
-</div>
-
-    <div class="col-span-3 flex flex-col gap-2">
+    <div class="grid grid-cols-4 gap-2 mt-4">
       {imagenes.map((img, index) => (
-        <div class="flex-1 relative rounded-lg border border-white/10 overflow-hidden cursor-pointer hover:border-yellow-200 transition-all group bg-black/40">
+        <div class="aspect-video relative rounded-lg border border-white/10 overflow-hidden cursor-pointer hover:border-yellow-200 transition-all group bg-black/40">
           <img 
             src={img} 
-            class="js-thumb w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" 
+            class="js-modal-thumb w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" 
             alt={`Miniatura ${index + 1}`}
           />
         </div>
       ))}
     </div>
+    <p class="mt-6 text-white/20 text-[10px] font-mono uppercase tracking-widest">Trabajado en {fecha || '2025'}</p>
   </div>
 
-  <footer class="flex flex-wrap gap-3 justify-center w-full">
-    {github && (
-      <a href={github} target="_blank" class="flex items-center gap-2 px-4 py-2 text-xs font-bold text-white bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition active:scale-95">
-        <svg class="size-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-        GitHub
-      </a>
-    )}
-    {link && (
-      <a href={link} target="_blank" class="flex items-center gap-2 px-4 py-2 text-xs font-bold text-white bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition active:scale-95">
-        <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9-3-9m-9 9a9 9 0 019-9" /></svg>
-        Visitar
-      </a>
-    )}
-  </footer>
-</article>
+  <div class="w-full md:w-2/5 flex flex-col">
+    <h3 class="text-2xl font-bold text-yellow-200/90 mb-4">{titulo}</h3>
+    
+    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+      {descripcion}
+    </p>
+    
+    <div class="mb-8">
+        <h4 class="text-white/40 text-[10px] font-bold uppercase mb-3 tracking-wider">Tecnologías</h4>
+        <ul class="flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <li class={`flex items-center gap-x-1.5 rounded-md text-[10px] font-bold py-1 px-2 border ${tag.class}`}>
+                <tag.icon class="size-3" />
+                {tag.name}
+              </li>
+            ))}
+          </ul>
+    </div>
+
+    <footer class="mt-auto flex flex-col gap-3">
+        {link && link !== "#" && (
+            <a href={link} target="_blank" class="w-full text-center py-3 bg-yellow-200 text-black rounded-xl font-bold text-xs hover:bg-yellow-300 transition-all shadow-[0_0_20px_rgba(254,240,138,0.2)]">
+                Visitar Sitio Oficial
+            </a>
+        )}
+        {github && github !== "#" && (
+            <a href={github} target="_blank" class="w-full text-center py-3 bg-white/5 border border-white/10 rounded-xl text-white font-bold text-xs hover:bg-white/10 transition-all">
+                Ver Código en GitHub
+            </a>
+        )}
+    </footer>
+  </div>
+</div>
+
+<script>
+  // Lógica de intercambio de imágenes para el modal
+  function setupModalSwitcher() {
+    const thumbs = document.querySelectorAll('.js-modal-thumb');
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', (e) => {
+        const parent = (e.target as HTMLElement).closest('.w-full.md\\:w-3\\/5');
+        const mainImg = parent?.querySelector('.js-modal-main-img') as HTMLImageElement;
+        const newSrc = (e.target as HTMLImageElement).src;
+        
+        if (mainImg) {
+          mainImg.style.opacity = '0';
+          setTimeout(() => {
+            mainImg.src = newSrc;
+            mainImg.style.opacity = '1';
+          }, 200);
+        }
+      });
+    });
+  }
+
+  // Ejecutar cuando se abra el modal (esto lo llamaremos desde el padre)
+  window.addEventListener('modalOpened', setupModalSwitcher);
+</script>

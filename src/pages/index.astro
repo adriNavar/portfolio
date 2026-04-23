@@ -17,71 +17,196 @@ import Footer from "../components/Footer.astro";
 import Comunidad from '../components/Comunidad.astro';
 import SobreMi from '../components/SobreMi.astro';
 import CvIcon from '../components/icons/Cv.astro';
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
-<Layout>
+
+<Layout title="Portafolio de Adrián Navarro - Desarrollador Web y Business Analyst">
     <Header /> 
     
-    <main class="px-4 flex flex-col items-center w-full">
+   <main class="px-4 flex flex-col items-center w-full pt-24">
         
-      <SeccionContainer id="inicio" class="pt-32 md:pt-44 pb-12 w-full max-w-4xl">
-    <div class="border border-white/20 rounded-3xl overflow-hidden bg-[#050505]/60 shadow-2xl backdrop-blur-md p-8 md:p-12">
-        <div class="flex flex-col items-center md:items-start text-center md:text-left">
-            <h1 class="text-white text-4xl md:text-6xl font-bold flex flex-col md:flex-row items-center gap-y-4 md:gap-x-4 pb-6">
-                Adrián Navarro
-                <a href="https://www.linkedin.com/in/adrian-navarro-arg/" target="_blank" rel="noopener" class="shrink-0 hover:scale-105 transition">
-                    <Badge>Servicios y Soluciones Informaticas</Badge>
-                </a>
-            </h1>
-
-            <h2 class="text-lg md:text-2xl opacity-90 text-pretty max-w-[800px] leading-relaxed">
-                <span class="text-yellow-200 font-bold">+4 Años de Experiencia.</span>
-                <span class="text-white"> Desarrollo Web, Análisis de datos y Business Analyst.</span>
-                <span class="block text-sky-200/80 mt-2">
-                    Corrientes, Argentina • Soy Alto Crack
-                </span>
-            </h2>
-
-            <nav class="flex flex-row flex-wrap gap-3 mt-10 justify-center md:justify-start w-full">
-                <Redes href="https://www.linkedin.com/in/adrian-navarro-arg/">
-                    <div class="flex items-center gap-x-2 px-5 py-2.5 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-white/20 transition group">
-                        <LinkedInIcon class="size-5 text-[#0A66C2]" /> 
-                        <span class="text-white/90 font-medium text-sm">LinkedIn</span>
-                    </div>
-                </Redes>
+        <SeccionContainer id="inicio" class="h-auto flex flex-col items-center justify-start w-full pt-20 md:pt-28 pb-0">
+            <div class="w-full max-w-6xl px-4 flex flex-col items-center text-center">
                 
-                <Redes href="https://github.com/adriNavar">
-                    <div class="flex items-center gap-x-2 px-5 py-2.5 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-white/20 transition group">
-                        <GitHubIcon class="size-5 text-white" /> 
-                        <span class="text-white/90 font-medium text-sm">GitHub</span>
-                    </div>
-                </Redes>
+                <p class="text-yellow-200 font-bold tracking-widest text-sm mb-4 uppercase animate-fade-in">¡Hola! Soy</p>
                 
-                <Redes href="mailto:adridonorione@gmail.com">
-                    <div class="flex items-center gap-x-2 px-5 py-2.5 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-white/20 transition group">
-                        <GmailIcon class="size-5" /> 
-                        <span class="text-white/90 font-medium text-sm hidden md:inline">adridonorione@gmail.com</span>
-                        <span class="text-white/90 font-medium text-sm md:hidden">Email</span>
-                    </div>
-                </Redes>
+                <h1 class="text-white text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold flex flex-wrap items-center justify-center gap-x-6 gap-y-4 pb-8 w-full">
+                    <span class="inline-block">Adrián Navarro</span>
+                    <a href="https://www.linkedin.com/in/adrian-navarro-arg/" target="_blank" rel="noopener" class="shrink-0 hover:scale-105 transition flex items-center">
+                        <Badge>Servicios y Soluciones Informáticas</Badge>
+                    </a>
+                </h1>
 
-                <Redes>
-          <button 
-  class="btn-ver flex items-center gap-x-2 px-5 py-2.5 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-white/20 transition group cursor-pointer"
-  data-img="/img/AN-CV.pdf" 
-  data-title="CURRICULUM VITAE"
->
-  <CvIcon class="size-5 text-white/80" />
-  <span class="text-white/90 font-medium text-sm">Ver CV</span>
-</button>
-                </Redes>
-            </nav>
-        </div>
+                <h2 class="text-xl md:text-3xl opacity-90 text-pretty max-w-[900px] leading-tight font-medium flex flex-col items-center">
+                    <div>
+                        <span class="text-yellow-200 font-bold">+4 Años de Experiencia.</span>
+                        
+                        <span class="text-white/90"> Desarrollo Web, Análisis de datos y Business Analyst.</span>
+                    </div>
+                    <span class="block text-sky-200/70 mt-4 text-lg md:text-xl font-normal italic">
+                        Corrientes, Argentina • Soy Alto Crack
+                    </span>
+                </h2>
+
+                <nav class="flex flex-row flex-wrap gap-4 mt-12 justify-center w-full">
+                    <Redes href="https://www.linkedin.com/in/adrian-navarro-arg/">
+                        <div class="flex items-center gap-x-3 px-6 py-3 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-yellow-200/50 transition-all group shadow-lg">
+                            <LinkedInIcon class="size-6 text-[#0A66C2]" /> 
+                            <span class="text-white/90 font-medium text-base">LinkedIn</span>
+                        </div>
+                    </Redes>
+                    
+                    <Redes href="https://github.com/adriNavar">
+                        <div class="flex items-center gap-x-3 px-6 py-3 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-white/30 transition-all group shadow-lg">
+                            <GitHubIcon class="size-6 text-white" /> 
+                            <span class="text-white/90 font-medium text-base">GitHub</span>
+                        </div>
+                    </Redes>
+                    
+                    <Redes href="mailto:adridonorione@gmail.com">
+                        <div class="flex items-center gap-x-3 px-6 py-3 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-white/30 transition-all group shadow-lg">
+                            <GmailIcon class="size-6" /> 
+                            <span class="text-white/90 font-medium text-base">Email</span>
+                        </div>
+                    </Redes>
+
+                    <button 
+                        class="btn-ver flex items-center gap-x-3 px-6 py-3 bg-yellow-200/10 border border-yellow-200/20 rounded-full hover:bg-yellow-200/20 hover:border-yellow-200/50 transition-all group cursor-pointer shadow-[0_0_15px_rgba(250,204,21,0.1)]"
+                        data-img="/img/AN-CV.pdf" 
+                        data-title="CURRICULUM VITAE"
+                    >
+                        <CvIcon class="size-6 text-yellow-200" />
+                        <span class="text-yellow-100 font-bold text-base">Ver CV</span>
+                    </button>
+                </nav>
+
+                <div id="scroll-arrow" class="mt-4 animate-bounce opacity-50 self-center hidden"> <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+</div>
+            </div>
+        </SeccionContainer>
+ 
+  <div id="quick-menu" class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl mt-12 mb-20 animate-fade-in">
+
+  <!-- 01. Experiencia -->
+  <button onclick="switchTab('exp')" class="group relative p-6 bg-white/5 border border-yellow-200/40 rounded-3xl overflow-hidden hover:border-yellow-200/80 transition-all duration-500 text-left flex gap-4">
+    <div class="absolute inset-0 bg-gradient-to-br from-yellow-200/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+    <div class="relative z-10 flex-1 min-w-0">
+      <span class="text-yellow-200 font-mono text-[10px] uppercase tracking-widest mb-1 block">01. Trayectoria</span>
+      <h3 class="text-xl font-bold text-white mb-1">Mi Experiencia</h3>
+      <p class="text-white/80 text-xs leading-relaxed mb-3">Repasá mi recorrido laboral en desarrollo y análisis de datos.</p>
+      <span class="text-yellow-200 font-black text-[9px] uppercase tracking-tighter group-hover:translate-x-2 transition-transform inline-block">Abrir Consola →</span>
     </div>
-</SeccionContainer>
+    <div class="relative z-10 shrink-0 w-28 flex flex-col justify-center opacity-70 group-hover:opacity-100 transition-opacity">
+      <svg viewBox="0 0 80 110" class="w-full">
+        <line x1="12" y1="8" x2="12" y2="102" stroke="#facc1540" stroke-width="1.5"/>
+        <circle cx="12" cy="12" r="4" fill="#facc15"/>
+        <rect x="22" y="6" width="54" height="12" rx="3" fill="#facc1515"/>
+        <text x="26" y="15" font-family="monospace" font-size="6" fill="#facc15cc">2024 - HOY</text>
+        <text x="22" y="32" font-family="sans-serif" font-size="7" fill="#ffffff" font-weight="600">Dev Freelance</text>
+        <circle cx="12" cy="50" r="4" fill="#facc1570"/>
+        <rect x="22" y="44" width="54" height="12" rx="3" fill="#facc1510"/>
+        <text x="26" y="53" font-family="monospace" font-size="6" fill="#facc15aa">2022 - HOY</text>
+        <text x="22" y="70" font-family="sans-serif" font-size="7" fill="#ffffffcc">FullStack & Data</text>
+        <circle cx="12" cy="88" r="3" fill="#facc1540"/>
+        <rect x="22" y="83" width="54" height="12" rx="3" fill="#facc1508"/>
+        <text x="26" y="92" font-family="monospace" font-size="6" fill="#facc1580">2018 - 2022</text>
+        <text x="22" y="108" font-family="sans-serif" font-size="7" fill="#ffffff99">Soporte Técnico</text>
+      </svg>
+    </div>
+  </button>
 
-        <SeccionContainer id="experiencia" class="pt-4 pb-32 px-2 sm:px-4 w-full max-w-4xl">
+  <!-- 02. Proyectos -->
+  <button onclick="switchTab('proy')" class="group relative p-6 bg-white/5 border border-sky-400/40 rounded-3xl overflow-hidden hover:border-sky-400/80 transition-all duration-500 text-left flex gap-4">
+    <div class="absolute inset-0 bg-gradient-to-br from-sky-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+    <div class="relative z-10 flex-1 min-w-0">
+      <span class="text-sky-400 font-mono text-[10px] uppercase tracking-widest mb-1 block">02. Portfolio</span>
+      <h3 class="text-xl font-bold text-white mb-1">Proyectos</h3>
+      <p class="text-white/80 text-xs leading-relaxed mb-3">Explorá los sistemas y dashboards que construí últimamente.</p>
+      <span class="text-sky-400 font-black text-[9px] uppercase tracking-tighter group-hover:translate-x-2 transition-transform inline-block">Ver Desarrollos →</span>
+    </div>
+    <div class="relative z-10 shrink-0 w-28 flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity">
+      <svg viewBox="0 0 90 90" class="w-full">
+        <circle cx="45" cy="45" r="28" fill="none" stroke="#38bdf8" stroke-width="7" stroke-dasharray="44 132" stroke-dashoffset="0"/>
+        <circle cx="45" cy="45" r="28" fill="none" stroke="#34d399" stroke-width="7" stroke-dasharray="35 132" stroke-dashoffset="-44"/>
+        <circle cx="45" cy="45" r="28" fill="none" stroke="#f59e0b" stroke-width="7" stroke-dasharray="30 132" stroke-dashoffset="-79"/>
+        <circle cx="45" cy="45" r="28" fill="none" stroke="#a78bfa" stroke-width="7" stroke-dasharray="23 132" stroke-dashoffset="-109"/>
+        <circle cx="45" cy="45" r="17" fill="#0f172a"/>
+        <text x="45" y="42" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#ffffff80">stack</text>
+        <text x="45" y="52" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#ffffff" font-weight="700">6+</text>
+      </svg>
+    </div>
+  </button>
+
+  <!-- 03. Sobre Mí -->
+  <button onclick="switchTab('about')" class="group relative p-6 bg-white/5 border border-emerald-400/40 rounded-3xl overflow-hidden hover:border-emerald-400/80 transition-all duration-500 text-left flex gap-4">
+    <div class="absolute inset-0 bg-gradient-to-br from-emerald-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+    <div class="relative z-10 flex-1 min-w-0">
+      <span class="text-emerald-400 font-mono text-[10px] uppercase tracking-widest mb-1 block">03. Perfil</span>
+      <h3 class="text-xl font-bold text-white mb-1">Sobre Mí</h3>
+      <p class="text-white/80 text-xs leading-relaxed mb-3">Conocé quién soy, mis estudios y lo que me apasiona.</p>
+      <span class="text-emerald-400 font-black text-[9px] uppercase tracking-tighter group-hover:translate-x-2 transition-transform inline-block">Leer Bio →</span>
+    </div>
+    <div class="relative z-10 shrink-0 w-28 flex flex-col justify-center opacity-70 group-hover:opacity-100 transition-opacity">
+      <svg viewBox="0 0 90 90" class="w-full">
+        <text x="0" y="12" font-family="sans-serif" font-size="7" fill="#ffffffcc">Code y DB</text>
+        <rect x="0" y="15" width="88" height="5" rx="2" fill="#ffffff15"/>
+        <rect x="0" y="15" width="75" height="5" rx="2" fill="#34d399"/>
+        <text x="78" y="20" font-family="sans-serif" font-size="6" fill="#34d399">90%</text>
+        <text x="0" y="32" font-family="sans-serif" font-size="7" fill="#ffffffcc">Rock y Birra</text>
+        <rect x="0" y="35" width="88" height="5" rx="2" fill="#ffffff15"/>
+        <rect x="0" y="35" width="66" height="5" rx="2" fill="#34d399cc"/>
+        <text x="69" y="40" font-family="sans-serif" font-size="6" fill="#34d399">75%</text>
+        <text x="0" y="52" font-family="sans-serif" font-size="7" fill="#ffffffcc">DevOps</text>
+        <rect x="0" y="55" width="88" height="5" rx="2" fill="#ffffff15"/>
+        <rect x="0" y="55" width="79" height="5" rx="2" fill="#34d399aa"/>
+        <text x="82" y="60" font-family="sans-serif" font-size="6" fill="#34d399">75%</text>
+        <text x="0" y="72" font-family="sans-serif" font-size="7" fill="#ffffffcc">Futbol y Cancha</text>
+        <rect x="0" y="75" width="88" height="5" rx="2" fill="#ffffff15"/>
+        <rect x="0" y="75" width="71" height="5" rx="2" fill="#34d39988"/>
+        <text x="74" y="80" font-family="sans-serif" font-size="6" fill="#34d399">80%</text>
+      </svg>
+    </div>
+  </button>
+
+  <!-- 04. Contacto -->
+  <button onclick="switchTab('contact')" class="group relative p-6 bg-white/5 border border-red-500/40 rounded-3xl overflow-hidden hover:border-red-500/80 transition-all duration-500 text-left flex gap-4">
+    <div class="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+    <div class="relative z-10 flex-1 min-w-0">
+      <span class="text-red-400 font-mono text-[10px] uppercase tracking-widest mb-1 block">04. Comunicación</span>
+      <h3 class="text-xl font-bold text-white mb-1">Contacto</h3>
+      <p class="text-white/80 text-xs leading-relaxed mb-3">¿Tenés una propuesta o consulta? Hablemos directamente.</p>
+      <span class="text-red-500 font-black text-[9px] uppercase tracking-tighter group-hover:translate-x-2 transition-transform inline-block drop-shadow-[0_0_6px_rgba(239,68,68,0.8)]">Enviar Mensaje →</span>
+    </div>
+    <div class="relative z-10 shrink-0 w-28 flex flex-col justify-center opacity-70 group-hover:opacity-100 transition-opacity">
+      <svg viewBox="0 0 90 90" class="w-full">
+        <polyline points="0,55 8,42 16,62 24,32 32,62 40,42 48,55 56,45 64,55 72,50 80,55 88,52" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="0,65 8,60 16,68 24,58 32,70 40,60 48,65 56,61 64,65 72,63 80,65 88,63" fill="none" stroke="#ef444460" stroke-width="1" stroke-linecap="round"/>
+        <circle cx="10" cy="25" r="9" fill="#ef444420" stroke="#ef444460" stroke-width="0.5"/>
+        <text x="10" y="29" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#ef4444">✉</text>
+        <circle cx="35" cy="25" r="9" fill="#ef444420" stroke="#ef444460" stroke-width="0.5"/>
+        <text x="35" y="29" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#ef4444">in</text>
+        <circle cx="60" cy="25" r="9" fill="#ef444420" stroke="#ef444460" stroke-width="0.5"/>
+        <text x="60" y="29" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#ef4444">gh</text>
+      </svg>
+    </div>
+  </button>
+
+</div>
+
+
+    
+        <SeccionContainer id="consola" class="hidden pt-4 pb-32 px-2 sm:px-4 w-full max-w-6xl">
+           <!-- BOTÓN VOLVER acá arriba -->
+    <div class="flex justify-center mb-4">
+        <button id="btn-volver"
+            onclick="volverAlInicio()"
+            class="hidden flex items-center gap-x-2 px-5 py-2.5 bg-[#050505]/80 backdrop-blur-md border border-white/10 rounded-full hover:bg-yellow-200/10 hover:border-yellow-200/30 transition-all text-white/60 hover:text-yellow-200 text-sm font-medium shadow-xl"
+        >
+            ← Volver al menú principal
+        </button>
+    </div>
+
             <div class="border border-white/20 rounded-xl overflow-hidden bg-[#050505]/90 shadow-2xl backdrop-blur-md">
                 
                 <div class="bg-white/10 border-b border-white/10 flex items-center justify-between px-4 py-3">
@@ -103,26 +228,26 @@ import CvIcon from '../components/icons/Cv.astro';
 
                 <div class="p-6 md:p-10">
                     <div id="content-exp" class="block">
-                        <h2 class="text-2xl font-semibold mb-10 flex gap-x-3 items-center text-white/90">
-                            <Laburo class="size-8" />
-                            Experiencia Laboral
-                        </h2>
                         <Experiencia />
                     </div>
                     <div id="content-proy" class="hidden">
-                        <h2 class="text-2xl font-semibold mb-10 flex gap-x-3 items-center text-white/90">
-                            <CodeIcon class="size-8" />
-                            Proyectos Destacados
-                        </h2>
                         <Proyectos /> 
                     </div>
                     <div id="content-about" class="hidden">
                         <SobreMi />
                     </div>
                     <div id="content-contact" class="hidden">
+                        <!-- <h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center text-white/90">
+                            <GmailIcon class="size-8 text-yellow-200" />
+                            Contacto
+                        </h2> -->
                         <Contacto />
                     </div>
                     <div id="content-team" class="hidden">
+                        <h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center text-white/90">
+                            <UserIcon class="size-8 text-yellow-200" />
+                            Comunidad
+                        </h2>
                         <Comunidad />
                     </div>
                 </div>
@@ -131,69 +256,139 @@ import CvIcon from '../components/icons/Cv.astro';
 
         <Footer/>
     </main>
-</Layout>
+<Comunidad /></Layout>
+
 <script is:inline>
-  const initTabs = () => {
-    const tabs = {
-      exp: { btn: document.getElementById('tab-exp'), content: document.getElementById('content-exp') },
-      proy: { btn: document.getElementById('tab-proy'), content: document.getElementById('content-proy') },
-      about: { btn: document.getElementById('tab-about'), content: document.getElementById('content-about') },
-      contact: { btn: document.getElementById('tab-contact'), content: document.getElementById('content-contact') },
-      team: { btn: document.getElementById('tab-team'), content: document.getElementById('content-team') }
-    };
-
-    const switchTab = (activeKey) => {
-    // Mapeo de ID de botón a Nombre Visual
-    const names = {
-        exp: 'experiencia',
-        proy: 'proyectos',
-        about: 'sobre-mi',
-        contact: 'contacto',
-        team: 'comunidad'
-    };
-
-    // CAMBIO CLAVE: Actualiza el nombre en la terminal
+  window.switchTab = (activeKey) => {
+    const consolaContainer = document.getElementById('consola');
+    const quickMenu = document.getElementById('quick-menu');
+    const scrollArrow = document.getElementById('scroll-arrow');
     const label = document.getElementById('active-tab-name');
+    const seccionInicio = document.getElementById('inicio');
+const containerVolver = document.getElementById('container-volver');
+    const names = { 
+      exp: 'experiencia', 
+      proy: 'proyectos', 
+      about: 'sobre-mi', 
+      contact: 'contacto' 
+    };
+
+    const contents = {
+      exp: document.getElementById('content-exp'),
+      proy: document.getElementById('content-proy'),
+      about: document.getElementById('content-about'),
+      contact: document.getElementById('content-contact')
+    };
+
+    document.getElementById('btn-volver')?.classList.remove('hidden');
+
+    if (consolaContainer) consolaContainer.classList.remove('hidden');
+    if (quickMenu) quickMenu.classList.add('hidden');
+    if (seccionInicio) seccionInicio.classList.add('hidden');
+    if (scrollArrow) scrollArrow.classList.remove('hidden');
+if (containerVolver) containerVolver.classList.remove('hidden');
     if (label) label.innerText = names[activeKey] || activeKey;
 
-    Object.keys(tabs).forEach(key => {
-        const isActive = key === activeKey;
-        if (!tabs[key].content) return;
-
-        tabs[key].content.classList.toggle('hidden', !isActive);
-        tabs[key].content.classList.toggle('block', isActive);
-        
-        // Ya no necesitamos manejar clases de botones aquí porque ya no hay botones en la consola
+    Object.keys(contents).forEach(key => {
+      if (!contents[key]) return;
+      const isActive = key === activeKey;
+      contents[key].classList.toggle('hidden', !isActive);
+      contents[key].classList.toggle('block', isActive);
     });
 
     if (activeKey === 'proy') window.dispatchEvent(new Event('resize'));
-};
 
-    // --- BLOQUE NUEVO PARA EL MENÚ SUPERIOR ---
-    // Buscamos todos los enlaces del header que tengan la clase 'nav-link'
+    if (consolaContainer) {
+      consolaContainer.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const initTabs = () => {
+    const consolaContainer = document.getElementById('consola');
+    const quickMenu = document.getElementById('quick-menu');
+    const scrollArrow = document.getElementById('scroll-arrow');
+    const seccionInicio = document.getElementById('inicio');
+
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        const targetTab = link.getAttribute('data-tab');
-        if (targetTab) {
-          switchTab(targetTab);
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        const isInicio = href === '#inicio';
+        
+        if (isInicio) {
+          document.getElementById('btn-volver')?.classList.add('hidden');
+          if (consolaContainer) consolaContainer.classList.add('hidden');
+          if (scrollArrow) scrollArrow.classList.add('hidden');
+          if (quickMenu) quickMenu.classList.remove('hidden');
+          if (seccionInicio) seccionInicio.classList.remove('hidden');
+        } else {
+          const targetTab = link.getAttribute('data-tab');
+          if (targetTab) window.switchTab(targetTab);
         }
       });
     });
-    // ------------------------------------------
 
-    tabs.exp.btn?.addEventListener('click', () => switchTab('exp'));
-    tabs.proy.btn?.addEventListener('click', () => switchTab('proy'));
-    tabs.about.btn?.addEventListener('click', () => switchTab('about'));
-    tabs.contact.btn?.addEventListener('click', () => switchTab('contact'));
-	tabs.team.btn?.addEventListener('click', () => switchTab('team'));
-  }; 
+    document.getElementById('tab-exp')?.addEventListener('click', () => window.switchTab('exp'));
+    document.getElementById('tab-proy')?.addEventListener('click', () => window.switchTab('proy'));
+    document.getElementById('tab-about')?.addEventListener('click', () => window.switchTab('about'));
+    document.getElementById('tab-contact')?.addEventListener('click', () => window.switchTab('contact'));
+  };
+
+  window.toggleComunidad = (open = true) => {
+    const sidebar = document.getElementById('comunidad-sidebar');
+    const overlay = document.getElementById('comunidad-overlay');
+
+    if (!sidebar || !overlay) return;
+
+    if (open) {
+      overlay.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          overlay.classList.add('opacity-100');
+          sidebar.classList.remove('translate-x-full');
+        });
+      });
+    } else {
+      overlay.classList.remove('opacity-100');
+      sidebar.classList.add('translate-x-full');
+      setTimeout(() => {
+        overlay.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }, 500);
+    }
+  };
+
+  document.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.closest('[data-open-comunidad]') || target.innerText?.trim().toLowerCase() === 'comunidad') {
+      const isActionable = target.tagName === 'A' || target.tagName === 'BUTTON' || target.closest('button');
+      if (isActionable) {
+        if (target.getAttribute('href') === '#consola') e.preventDefault();
+        window.toggleComunidad(true);
+      }
+    }
+  });
 
   document.addEventListener('astro:page-load', initTabs);
-  initTabs(); 
+  initTabs();
+
+  window.volverAlInicio = () => {
+    const consolaContainer = document.getElementById('consola');
+    const quickMenu = document.getElementById('quick-menu');
+    const scrollArrow = document.getElementById('scroll-arrow');
+    const seccionInicio = document.getElementById('inicio');
+    document.getElementById('btn-volver')?.classList.add('hidden');
+    if (consolaContainer) consolaContainer.classList.add('hidden');
+    if (scrollArrow) scrollArrow.classList.add('hidden');
+    if (quickMenu) quickMenu.classList.remove('hidden');
+    if (seccionInicio) seccionInicio.classList.remove('hidden');
+
+   window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 </script>
+
 <style>
-    /* Estilo para que se pueda deslizar el menú en el celu sin ver la barra de scroll */
     .no-scrollbar::-webkit-scrollbar {
         display: none;
     }
@@ -201,20 +396,23 @@ import CvIcon from '../components/icons/Cv.astro';
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
+    
+    @keyframes fade-in {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+        animation: fade-in 0.8s ease-out forwards;
+    }
 </style>
-<!-- 
-para el modal de certificado -->
+
 <div id="v-modal-container" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/90 backdrop-blur-md">
   <div class="relative bg-[#050505] border border-white/10 rounded-3xl w-full max-w-5xl h-[85vh] flex flex-col overflow-hidden shadow-2xl">
-    
     <div class="p-4 border-b border-white/5 flex justify-between items-center bg-black/20">
       <span id="v-modal-title" class="text-white/40 text-[10px] font-mono uppercase tracking-widest">Certificado</span>
       <button id="v-btn-close" class="text-white/60 hover:text-white text-2xl px-2 transition-colors">×</button>
     </div>
-
-    <div id="v-content" class="flex-grow bg-white/5 relative overflow-y-auto p-4 md:p-8 flex flex-col items-center gap-8 no-scrollbar">
-      </div>
-
+    <div id="v-content" class="flex-grow bg-white/5 relative overflow-y-auto p-4 md:p-8 flex flex-col items-center gap-8 no-scrollbar"></div>
     <div class="p-4 border-t border-white/5 bg-black/40">
       <a id="v-link-download" href="" download class="flex items-center justify-center gap-2 w-full py-3 bg-[#0a1a24] border border-[#00e5ff]/30 text-[#00e5ff] rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-[#00e5ff]/10 transition-all">
         Descargar Archivo
@@ -222,9 +420,9 @@ para el modal de certificado -->
     </div>
   </div>
 </div>
+
 <script is:inline>
   (function() {
-    // Sincronizamos los IDs exactos del HTML de arriba
     const modal = document.getElementById('v-modal-container'); 
     const content = document.getElementById('v-content'); 
     const closeBtn = document.getElementById('v-btn-close');
@@ -233,19 +431,14 @@ para el modal de certificado -->
 
     document.addEventListener('click', (e) => {
       const btn = e.target.closest('.btn-ver');
-      
       if (btn && modal && content) {
         const rawPaths = btn.getAttribute('data-img');
-        const paths = rawPaths.split(','); // Separamos por coma si hay varios
+        const paths = rawPaths.split(','); 
         const certTitle = btn.getAttribute('data-title');
-        
-        content.innerHTML = ''; // Limpiamos visualizador anterior
-
+        content.innerHTML = ''; 
         paths.forEach(path => {
           const cleanPath = path.trim();
           let element;
-
-          // Creamos el visor según la extensión
           if (cleanPath.toLowerCase().endsWith('.pdf')) {
             element = document.createElement('iframe');
             element.className = "w-full min-h-[500px] md:min-h-[700px] rounded-lg border border-white/10 shadow-2xl";
@@ -253,15 +446,11 @@ para el modal de certificado -->
             element = document.createElement('img');
             element.className = "max-w-full h-auto rounded-lg shadow-2xl border border-white/10";
           }
-          
           element.src = cleanPath;
           content.appendChild(element);
         });
-
         if (title) title.innerText = certTitle;
         if (downloadLink) downloadLink.href = paths[0].trim(); 
-
-        // Mostramos el modal usando los IDs correctos
         modal.classList.remove('hidden');
         modal.classList.add('flex');
         document.body.style.overflow = 'hidden';
@@ -276,7 +465,6 @@ para el modal de certificado -->
         content.innerHTML = ''; 
       }
     };
-
     closeBtn?.addEventListener('click', handleClose);
     modal?.addEventListener('click', (e) => { if (e.target === modal) handleClose(); });
   })();

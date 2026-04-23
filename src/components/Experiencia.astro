@@ -1,53 +1,123 @@
 ---
 import ExperienciaItem from './ExperienciaItem.astro';
-// Importa tus iconos aquí (ejemplo)
 import Net from './icons/Net.astro';
 import Angular from './icons/Angular.astro';
 import Postgres from './icons/Sql.astro';
 import PowerBI from './icons/Powerbi.astro';
-import Grafana from './icons/Grafana.astro';
+import Grafana from './icons/Grafa.astro';
 import Jenkins from './icons/Jenkins.astro';
 import N8n from './icons/N8n.astro';
+import Firebase from './icons/Firebase.astro';
+import AstroIcon from './icons/Astro.astro';
+import ReactIcon from './icons/React.astro';   
+import MoviIcon from './icons/Movi.astro';
+import TelefonicaIcon from './icons/Telefonica.astro';
+import CallIcon from './icons/Call.astro';
+import AtentoIcon from './icons/Atento.astro';
 
 const EXPERIENCIA = [
+   {
+    id: 'freelance',
+    fecha: 'Ene 2024 - Presente',
+    titulo: 'Desarrollador Web Freelance',
+    empresa: 'PROYECTOS INDEPENDIENTES',
+    items: [
+        { 
+            text: 'Desarrollo aplicaciones a medida para profesionales, abarcando el ciclo completo: desde la toma de requerimientos hasta el despliegue. Trabajando en equipo con colegas, creo landing pages, e-commerce, sistemas de gestión y tableros de control, además de encargarme de la optimización y limpieza de bases de datos.', 
+            icons: [AstroIcon, Angular, Net, Firebase, ReactIcon] 
+        }
+    ],
+},
     {
-        fecha: 'Agosto 2022 - Presente',
-        titulo: 'Desarrollador FullStack — SYK S.A (Catastro Corrientes)',
-        items: [
-            {
-                text: 'Desarrollo y mantenimiento de aplicaciones web para el Sistema de Catastro Provincial.',
-                icons: [Net, Angular, Postgres]
-            },
-            {
-                text: 'Creación de dashboards estratégicos, depuración de datos e implementación de auditorías.',
-                icons: [Postgres, PowerBI, Grafana]
-            },
-            {
-                text: 'Gestión del ciclo de vida de aplicaciones: versionado y despliegue en entornos productivos.',
-                icons: [Jenkins, Postgres] 
-            },
-            {
-                text: 'Optimización operativa con flujos Scrum y automatizaciones con n8n para eliminar procesos manuales.',
-                icons: [N8n]
-            }
-        ],
-        // enlace: 'https://catastro.corrientes.gob.ar/',
-        // botonTexto: 'Ver proyecto'
-    },
-       {
-        fecha: 'Marzo 2022 - Junio 2022',
-        titulo: 'Soporte Técnico — Pasantia en Dirección General de Catastro',
-        descripcion: 'Resolución de problemas técnicos en redes y sistemas operativos para las diversas áreas de la institución, asegurando la continuidad operativa de los sistemas internos.'
-    },
+    id: 'syk',
+    fecha: 'Jul 2022 - Presente',
+    titulo: 'FullStack & Data Analyst',
+    empresa: 'SYK S.A (DIRECCIÓN GENERAL DE CATASTRO CORRIENTES)',
+    items: [
+        { 
+            text: 'Actualmente me desempeño como Full Stack Developer en SYK S.A. para la Dirección General de Catastro provincial. Me encargo de desarrollar nuevos módulos, mantener sistemas legacy, optimizar bases de datos y gestionar el ciclo de vida del software en metodologías ágiles. Entre mis principales logros, desarrollé un sistema propio de automatización de despliegues para entornos .NET y creé dashboards estratégicos en tiempo real para facilitar la toma de decisiones.', 
+            icons: [Net, Angular, Postgres, PowerBI, Grafana, Jenkins, N8n] 
+        }
+    ],
+},
     {
-        fecha: 'Julio 2018 - Febrero 2022',
-        titulo: 'Asesor de Soporte Técnico — Atento S.A. Chaco',
-        descripcion: 'Soporte técnico especializado para clientes de Movistar Fija, enfocado en la resolución eficiente de incidencias técnicas y garantía de satisfacción del cliente.'
-    }
+    id: 'atento',
+    fecha: 'Jul 2018 - Feb 2022',
+    titulo: 'Soporte Técnico Especializado',
+    empresa: 'ATENTO S.A. CHACO',
+    items: [
+        { 
+            text: 'Brindé soporte técnico y atención personalizada a usuarios de Movistar (Fibra Óptica, ADSL, VOIP y TV). Me enfoqué en el diagnóstico ágil y la resolución de incidencias, priorizando siempre la empatía, la comunicación clara y la satisfacción total del cliente en cada interacción.', 
+            icons: [CallIcon, MoviIcon, TelefonicaIcon, AtentoIcon] 
+        }
+    ],
+    
+}
 ];
 ---
-<ol class="relative border-s border-white/20 ml-3">      
-    {EXPERIENCIA.map(experiencia => (
-        <ExperienciaItem {...experiencia}/>
-    ))}
-</ol>
+
+<div class="w-full mt-10 font-sans relative">
+    <ol class="flex flex-col md:flex-row w-full gap-y-0 md:gap-y-0 mb-6 relative">      
+        {EXPERIENCIA.map(exp => (
+            <ExperienciaItem {...exp} />
+        ))}
+    </ol>
+
+    <div class="hidden md:block w-full">
+        {EXPERIENCIA.map(exp => (
+            <div id={`pc-details-${exp.id}`} class="pc-details hidden w-full p-8 bg-green-950/10 border-l-4 border-green-500 rounded-r-2xl animate-in fade-in slide-in-from-top-4">
+                <h4 class="text-sm font-bold text-green-400 uppercase mb-6 tracking-widest">Tareas — {exp.titulo}</h4>
+                {exp.items ? (
+                    <div class="grid grid-cols-2 gap-8">
+                        {exp.items.map(item => (
+                            <div class="flex flex-col gap-2">
+                                <p class="text-white/80 text-sm italic">• {item.text}</p>
+                                <div class="flex gap-3 ml-4">
+                                    {item.icons?.map(Icon => <div class="size-4 text-white/20"><Icon /></div>)}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                ) : <p class="text-white/60 italic text-sm">{exp.items}</p>}
+            </div>
+        ))}
+    </div>
+</div>
+
+<script is:inline>
+    document.querySelectorAll('.exp-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const id = trigger.getAttribute('data-id');
+            const isMobile = window.innerWidth < 768;
+
+            // 1. RESETEAR TODOS LOS BOTONES A VERDE
+            document.querySelectorAll('.exp-trigger').forEach(t => {
+                t.classList.remove('bg-white/10', 'text-white/60', 'border-white/20', 'shadow-none');
+                t.classList.add('bg-green-600', 'text-white', 'border-green-500', 'shadow-[0_0_15px_rgba(34,197,94,0.4)]');
+            });
+
+            // 2. LÓGICA DE DESPLIEGUE (PC / CELU)
+            let contentToToggle;
+            if (isMobile) {
+                const item = trigger.closest('li');
+                contentToToggle = item.querySelector('.mobile-details');
+            } else {
+                contentToToggle = document.getElementById(`pc-details-${id}`);
+            }
+
+            const wasHidden = contentToToggle.classList.contains('hidden');
+
+            // Cerrar todos los contenidos
+            document.querySelectorAll('.mobile-details, .pc-details').forEach(el => el.classList.add('hidden'));
+
+            // 3. SI SE ABRE, CAMBIAR EL BOTÓN A GRIS
+            if (wasHidden) {
+                contentToToggle.classList.remove('hidden');
+                
+                // Cambiamos el color del botón clickeado a GRIS
+                trigger.classList.remove('bg-green-600', 'border-green-500', 'shadow-[0_0_15px_rgba(34,197,94,0.4)]');
+                trigger.classList.add('bg-white/10', 'text-white/60', 'border-white/20', 'shadow-none');
+            }
+        });
+    });
+</script>

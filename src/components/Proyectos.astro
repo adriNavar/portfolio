@@ -9,264 +9,251 @@ import FirebaseIcon from "./icons/Firebase.astro";
 import DjangoIcon from "./icons/Django.astro";
 import PythonIcon from "./icons/Python.astro";
 import SqliteIcon from "./icons/Sqlite.astro";
-const TAGS = {
-    DJANGO: {
-    name: "Django",
-    class: "border-[#092e20]/40 bg-[#092e20]/10 text-[#004d20]",
-    icon: DjangoIcon,
-  },
-  PYTHON: {
-    name: "Python",
-    class: "border-[#3776ab]/40 bg-[#3776ab]/10 text-[#4584b6]",
-    icon: PythonIcon,
-  },
-  SQLITE: {
-    name: "SQLite",
-    class: "border-[#003b57]/40 bg-[#003b57]/10 text-[#00a3e0]",
-    icon: SqliteIcon,
-  },
+import AstroIcon from "./icons/Astro.astro";
 
-    ANGULAR: {
-    name: "Angular",
-    class: "border-[#dd0031]/40 bg-[#dd0031]/10 text-[#ff4d4d]",
-    icon: AngularIcon,
-  },
-  FIREBASE: {
-    name: "Firebase",
-    class: "border-[#ffca28]/40 bg-[#ffca28]/10 text-[#ffca28]",
-    icon: FirebaseIcon,
-  },
-  REACT: {
-    name: "ReactJS",
-    class: "border-[#00d8ff]/40 bg-[#00d8ff]/10 text-[#7defff]",
-    icon: ReactIcon,
-  },
-MONGO: {
-    name: "MongoDB",
-    // Verde esmeralda para que resalte sobre el fondo oscuro
-    class: "border-[#47a248]/40 bg-[#47a248]/10 text-[#75d176]", 
-    icon: MongoIcon,
-  },
-  MP: {
-    name: "Mercado Pago",
-    class: "border-[#009ee3]/40 bg-[#009ee3]/10 text-[#54c3f7]",
-    icon: MercadoPagoIcon,
-  },
-  NODE: {
-    name: "NodeJS",
-    class: "border-[#339933]/40 bg-[#339933]/10 text-[#66cc66]",
-    icon: NodeIcon,
-  }
+const TAGS = {
+  DJANGO: { name: "Django", class: "border-[#092e20]/40 bg-[#092e20]/10 text-[#004d20]", icon: DjangoIcon },
+  PYTHON: { name: "Python", class: "border-[#3776ab]/40 bg-[#3776ab]/10 text-[#4584b6]", icon: PythonIcon },
+  SQLITE: { name: "SQLite", class: "border-[#003b57]/40 bg-[#003b57]/10 text-[#00a3e0]", icon: SqliteIcon },
+  ANGULAR: { name: "Angular", class: "border-[#dd0031]/40 bg-[#dd0031]/10 text-[#ff4d4d]", icon: AngularIcon },
+  FIREBASE: { name: "Firebase", class: "border-[#ffca28]/40 bg-[#ffca28]/10 text-[#ffca28]", icon: FirebaseIcon },
+  REACT: { name: "ReactJS", class: "border-[#00d8ff]/40 bg-[#00d8ff]/10 text-[#7defff]", icon: ReactIcon },
+  MONGO: { name: "MongoDB", class: "border-[#47a248]/40 bg-[#47a248]/10 text-[#75d176]", icon: MongoIcon },
+  MP: { name: "Mercado Pago", class: "border-[#009ee3]/40 bg-[#009ee3]/10 text-[#54c3f7]", icon: MercadoPagoIcon },
+  NODE: { name: "NodeJS", class: "border-[#339933]/40 bg-[#339933]/10 text-[#66cc66]", icon: NodeIcon },
+  ASTRO: { name: "Astro", class: "border-white/20 bg-white/5 text-white", icon: AstroIcon }
 }
 
 const PROYECTOS = [
   {
-    titulo: "El Promesero - Alfajores Artesanales",
+    id: "jota-cia",
+    titulo: "Desarrollo Web - Jota & Cía - Contabilidad Virtual",
     categoria: "desarrollo",
-    descripcion: "Desarrollo basado en curso de stack MERN. Se realizó un rediseño adaptando a los requisitos del cliente.",
+    descripcion: "Desarrollo a medida de una landing page corporativa para la firma contable Jota&Cía. El sistema centraliza la oferta de servicios de asesoría virtual mediante una arquitectura escalable en Next.js y Vercel. Incluye una integración nativa con Mercado Pago para el cobro automatizado de membresías y honorarios, junto con una infraestructura de correo profesional validada (SPF/DKIM) a través de Brevo para garantizar la entregabilidad de notificaciones y alertas legales a los clientes.",
+    tags: [TAGS.REACT, TAGS.MP, TAGS.MONGO, TAGS.NODE],
+    imagenes: ["/img/jota.png", "/img/jota2.png", "/img/jota3.png", "/img/jota4.png", "/img/jota5.png", "/img/jota6.png"],
+    link: "https://jotaycia.com.ar/",
+    github: "#",
+    fecha: "Enero 2026"
+  },
+  {
+    id: "promesero",
+    titulo: "Desarrollo Web - El Promesero - Ecomerce",
+    categoria: "desarrollo",
+    descripcion: "Desarrollé esta plataforma para digitalizar la operación comercial de una fábrica de alfajores, enfocada tanto en la venta minorista como en el canal mayorista. El sistema permite a los comerciantes solicitar una cuenta al administrador para acceder a una lista de precios y condiciones de compra especiales. La solución centraliza toda la logística del negocio: mapeo de ubicaciones de locales, seguimiento detallado de pedidos y un sistema de roles diferenciados (Admin, Vendedor y Usuario) para que cada parte del equipo gestione lo que le corresponde. Está construido con React y MongoDB, logrando una base de datos dinámica que se banca todo el flujo de stock y facturación de forma organizada.",
     tags: [TAGS.MONGO, TAGS.REACT, TAGS.NODE],
     imagenes: ["/img/prome1.jpg", "/img/prome2.jpg", "/img/prome3.jpg", "/img/prome4.jpg"],
-    link: "#",
-    github: "#"
+    link: "elpromesero.com",
+    github: "#",
+    fecha: "Diciembre 2024"
   },
   {
-    titulo: "Jota & Cía - Estudio Contable",
+    id: "cheryl-store",
+    titulo: "Desarrollo Web - CHERYL 65 STORE - Sistema de punto de venta",
     categoria: "desarrollo",
-    descripcion: "Plataforma web para gestión contable con integración de Mercado Pago.",
-    tags: [TAGS.REACT, TAGS.MONGO, TAGS.MP],
-    imagenes: ["/img/jota.jpg", "/img/jota2.jpg", "/img/jota3.jpg"],
+    descripcion: "Desarrollé una aplicación web para un cotillón orientada a la gestión de ventas y control de stock en tiempo real. El sistema incluye módulos ABM de productos y categorías, un actualizador de precios y una sección para la gestión de caja. Elegí un desarrollo web con Angular para que el cliente pudiera monitorear el negocio y cargar ventas desde el celular. Como motor de base de datos y hosting utilicé Firebase, aprovechando su capacidad de actualización inmediata y escalabilidad. La arquitectura está pensada para ser ágil y funcional, cubriendo las necesidades operativas de un punto de venta con un único perfil de usuario(Las imagenes son con la base de datos de prueba, dado que no puedo mostrar información sensible de su negocio).",
+    tags: [TAGS.ANGULAR, TAGS.FIREBASE, TAGS.NODE],
+    imagenes: ["/img/chery.png", "/img/chery2.png", "/img/chery3.png", "/img/chery4.png", "/img/chery5.png",  "/img/chery6.png",  "/img/chery7.png",  "/img/chery8.png",  "/img/chery9.png", ],
     link: "#",
-    github: "#"
+    github: "#",
+    fecha: "Julio 2025"
   },
   {
-    titulo: "Sistema de Puntos de Venta",
+    id: "portfolio-pro",
+    titulo: "Desarrollo Web - Portfolio Profesional",
     categoria: "desarrollo",
-    descripcion: "Software de gestión comercial integral con arquitectura escalable.",
-    tags: [TAGS.ANGULAR, TAGS.NODE, TAGS.FIREBASE],
-    imagenes: ["/img/venta1.jpg", "/img/venta2.jpg"],
+    descripcion: "Desarrollemi mi portfolio profesional, un espacio donde muestro quién soy, mis proyectos y redes sociales. Está desarrollado con Astro y busqué salir del diseño convencional de landing page, usando una estética de consola virtual para navegar cada sección. El sitio está desplegado en Firebase y centraliza todos mis desarrollos y accesos de contacto en una interfaz técnica y original.(Basado en el curso de Astro de MiduDev)",
+    tags: [TAGS.ASTRO, TAGS.REACT, TAGS.FIREBASE],
+    imagenes: ["/img/adri.png", "/img/adri2.png", "/img/adri3.png", "/img/adri4.png", "/img/adri5.png", "/img/adri6.png"],
     link: "#",
-    github: "#"
+    github: "#",
+    fecha: "Marzo 2026"
   },
   {
-    titulo: "Blog de Recetas Educativo",
+    id: "recetas-rebeldes",
+    titulo: "Desarrollo Web - Recetas Rebeldes - Blog CRUD",
     categoria: "desarrollo",
-    descripcion: "Proyecto final de curso enfocado en el desarrollo de un CMS de recetas.",
+    descripcion: "Desarrollo es una aplicación web de recetas diseñada como proyecto final de curso, centrada en la gestión de contenido gastronómico y la interacción entre usuarios. El sistema permite el registro y login de perfiles, habilitando a cada usuario a crear, editar y eliminar sus propias recetas y comentarios. Para el control del sitio, implementé un rol de administrador con permisos totales sobre el contenido y la gestión de cuentas. Además, incluí un módulo de mensajería interna para la comunicación directa entre usuarios y el administrador. El proyecto fue desarrollado íntegramente con el framework Django, utiliza SQLite como motor de base de datos y se encuentra desplegado y operativo en PythonAnywhere.(Quizas falto algun freemwork para front pero ya era momento de entrega para mas adelante podria seguir picando codigo)",
     tags: [TAGS.PYTHON, TAGS.DJANGO, TAGS.SQLITE],
     imagenes: ["/img/recetas.jpg", "/img/recetas2.jpg", "/img/recetas3.jpg"],
-    link: "https://tu-usuario.pythonanywhere.com",
-    github: "#"
+    link: "https://adnavarro.pythonanywhere.com/",
+    github: "#",
+    fecha: "Septiembre 2025"
+  },
+  {
+    id: "wali-rock",
+    titulo: "Desarrollo Web - Wali Rock - Portfolio",
+    categoria: "desarrollo",
+    descripcion: "Desarrollé una landing page para el músico Wali, priorizando una experiencia de usuario tipo Web App. Implementé una interfaz dinámica con navegación lateral para la discografía y trayectoria, optimizando el flujo en dispositivos móviles. Utilicé HTML5, Tailwind CSS para un diseño dark mode agresivo, y JavaScript vanilla para la gestión de estados y efectos 3D con Swiper.js, finalizando con un despliegue profesional en Firebase (A la espera que el artista me pase su contenido)",
+    tags: [TAGS.REACT, TAGS.NODE],
+    imagenes: ["/img/wali.png", "/img/wali2.png", "/img/wali3.png", "/img/wali4.png", "/img/wali1.png"],
+    link: "https://raices-7e12a.web.app/",
+    github: "#",
+    fecha: "Marzo 2026"
+  },
+  {
+    id: "bi-analyst",
+    titulo: "Business Intelligence & Data Visualization Analyst",
+    categoria: "business",
+    descripcion: "Desarrollé este tablero en Grafana para medir el desempeño de MegaMarket en sus puntos de venta. El proyecto consistió en conectar una base de datos PostgreSQL, procesar miles de respuestas de auditoría y transformar esa data en KPIs de cumplimiento real. El dashboard permite filtrar por jerarquías (Jefe de Operación, Zona y Local) y desglosar el puntaje por áreas críticas como Cajas o Atención al Cliente. (Solo muestro uno pero tengo al rededor de 10 o 12 tableros de control los cuales no puedo mostrar por confidiencialidad de datos pero tengo tableros para auditorias de usarios, movimientos de tramites de una entidad publica entre otros)",
+    tags: [TAGS.PYTHON, TAGS.SQLITE],
+    imagenes: ["/img/grafana.png", "/img/grafana1.png", "/img/grafana2.png",  "/img/grafana3.png", "/img/grafana4.png"],
+    link: "#",
+    github: "#",
+    fecha: "Enero 2026"
   }
-]
+];
 ---
 
-<div class="flex flex-wrap gap-4 mb-10 text-xs font-mono">
-  <button class="filter-btn text-yellow-200" data-category="todos">[*] TODOS</button>
-  <button class="filter-btn text-white/40" data-category="desarrollo">[1] DESARROLLO WEB</button>
-  <button class="filter-btn text-white/40" data-category="business">[2] BUSINESS ANALYST</button>
+<div class="flex flex-nowrap md:justify-center gap-2 mb-10 px-4 overflow-x-auto no-scrollbar pb-4 md:pb-0">
+    {['todos', 'desarrollo', 'business'].map((cat) => (
+      <button 
+        class={`filter-btn whitespace-nowrap px-4 md:px-6 py-2 rounded-full text-[10px] md:text-sm font-bold border transition-all duration-300 flex-shrink-0 
+          ${cat === 'todos' 
+            ? 'active text-yellow-200 border-yellow-200/50 bg-yellow-200/10' 
+            : 'text-white/40 border-white/10 hover:border-white/30'}`}
+        data-category={cat}
+      >
+        {cat === 'todos' ? 'Todos' : cat === 'desarrollo' ? 'Desarrollo Web' : 'Business Analyst'}
+      </button>
+    ))}
+</div>
+<div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 w-full max-w-7xl mx-auto px-2 md:px-4">
+  {PROYECTOS.map((proy) => (
+    <div 
+      class="project-card group cursor-pointer bg-gray-900 border border-gray-700 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col hover:shadow-lg hover:-translate-y-1"
+      data-id={proy.id}
+      data-category={proy.categoria}
+    >
+      <div class="relative aspect-[16/10] overflow-hidden flex-none">
+        <img 
+          src={proy.imagenes[0]} 
+          alt={proy.titulo} 
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+        />
+      </div>
+
+      <div class="p-3 md:p-4 flex flex-col gap-2 flex-grow">
+        <h3 class="text-[11px] md:text-sm font-bold text-gray-100 leading-tight line-clamp-2">
+          {proy.titulo}
+        </h3>
+
+      <div class="flex flex-wrap gap-1.5 mt-auto pt-2">
+  {proy.tags.map((tag) => (
+    <span class="text-[9px] md:text-[11px] px-2 py-0.5 rounded-full border border-gray-600 bg-gray-800 text-gray-300 font-medium">
+      {tag.name}
+    </span>
+  ))}
+</div>
+      </div>
+    </div>
+  ))}
 </div>
 
-<div class="relative w-full max-w-4xl mx-auto px-2 md:px-10">
-  <div class="overflow-hidden rounded-2xl border border-white/10 bg-[#0d1624]/60 backdrop-blur-md">
-    
-    <div id="main-projects-slider" class="flex transition-transform duration-500 ease-in-out">
-      {PROYECTOS.map((proy) => (
-        <div class="proyecto-card w-full flex-shrink-0 p-4 md:p-10">
-           <ProyectosItem {...proy} />
-        </div>
-      ))}
-    </div>
-    
-    <div class="flex justify-center gap-2 pb-6">
-      {PROYECTOS.map((_, index) => (
-        <button 
-          class="project-dot h-1 w-3 bg-white/20 rounded-full transition-all cursor-pointer" 
-          data-index={index}
-          aria-label={`Ir al proyecto ${index + 1}`}
-        ></button>
-      ))}
+<dialog id="project-modal" class="backdrop:bg-black/90 backdrop:backdrop-blur-sm bg-transparent p-0 m-auto fixed inset-0 z-[100] w-full h-full border-none">
+  <div class="flex items-center justify-center min-h-screen p-2 md:p-6">
+    <div class="bg-[#0d1624] border border-white/10 w-full max-w-5xl rounded-3xl shadow-2xl relative max-h-[95vh] overflow-y-auto">
+        <button id="close-modal" class="absolute top-4 right-4 z-[110] text-white/50 hover:text-white transition-colors bg-white/5 rounded-full p-2">
+            <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <div id="modal-body" class="w-full"></div>
     </div>
   </div>
+</dialog>
 
-  <button id="prev-project" class="absolute -left-1 md:-left-4 top-1/2 -translate-y-1/2 size-10 md:size-12 bg-yellow-200 rounded-full flex items-center justify-center text-black z-40 shadow-lg active:scale-95">
-    <svg class="size-5 md:size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M15 19l-7-7 7-7"/></svg>
-  </button>
-  
-  <button id="next-project" class="absolute -right-1 md:-right-4 top-1/2 -translate-y-1/2 size-10 md:size-12 bg-yellow-200 rounded-full flex items-center justify-center text-black z-40 shadow-lg active:scale-90">
-    <svg class="size-5 md:size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M9 5l7 7-7 7"/></svg>
-  </button>
+<div class="hidden">
+    {PROYECTOS.map(proy => (
+        <template id={`template-${proy.id}`}>
+            <ProyectosItem {...proy} />
+        </template>
+    ))}
 </div>
 
 <script is:inline>
-  function initProjectSlider() {
-    const slider = document.getElementById('main-projects-slider');
-    const nextBtn = document.getElementById('next-project');
-    const prevBtn = document.getElementById('prev-project');
-    const cards = document.querySelectorAll('.proyecto-card');
-    const dots = document.querySelectorAll('.project-dot');
+  function initProyectos() {
+    const modal = document.getElementById('project-modal');
+    const modalBody = document.getElementById('modal-body');
+    const closeBtn = document.getElementById('close-modal');
+    const cards = document.querySelectorAll('.project-card');
+    const filters = document.querySelectorAll('.filter-btn');
 
-    if (!slider || cards.length === 0) return;
+    // 1. FILTROS
+    filters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.dataset.category;
+        
+        filters.forEach(b => {
+            b.classList.remove('text-yellow-200', 'border-yellow-200/50', 'bg-yellow-200/10', 'active');
+            b.classList.add('text-white/40', 'border-white/10');
+        });
 
-    let currentIndex = 0;
-    const total = cards.length;
+        btn.classList.add('active', 'text-yellow-200', 'border-yellow-200/50', 'bg-yellow-200/10');
+        btn.classList.remove('text-white/40', 'border-white/10');
 
-    const updateSlider = () => {
-      // Mueve el slider exactamente el 100% por cada índice
-      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-      
-      // Actualiza visualmente los dots
-      dots.forEach((dot) => {
-        const dotIndex = parseInt(dot.getAttribute('data-index'));
-        if (dotIndex === currentIndex) {
-          dot.style.width = '2.5rem';
-          dot.style.backgroundColor = '#fef08a';
-          dot.classList.add('shadow-[0_0_15px_rgba(254,240,138,0.5)]');
-        } else {
-          dot.style.width = '0.75rem';
-          dot.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-          dot.classList.remove('shadow-[0_0_15px_rgba(254,240,138,0.5)]');
-        }
-      });
-    };
-
-    // Flecha Siguiente con loop infinito
-   nextBtn.onclick = () => {
-
-  currentIndex = (currentIndex + 1) % total; 
-  updateSlider();
-};
-    // Flecha Anterior con loop infinito
-    prevBtn.onclick = () => {
-  // Si currentIndex es 0 (el primero) -> (0 - 1 + 4) % 4 = 3 (va al último)
-  currentIndex = (currentIndex - 1 + total) % total; 
-  updateSlider();
-};
-    // Dots clickeables
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        currentIndex = parseInt(dot.getAttribute('data-index'));
-        updateSlider();
-      });
-    });
-
-    // Intercambio de imágenes (Switcher)
-    cards.forEach(card => {
-      const mainImg = card.querySelector('.js-main-img');
-      const thumbs = card.querySelectorAll('.js-thumb');
-      
-      thumbs.forEach(thumb => {
-        thumb.addEventListener('click', (e) => {
-          e.stopPropagation(); 
-          const newSrc = thumb.getAttribute('src');
-          if (mainImg) {
-            mainImg.style.opacity = '0';
-            setTimeout(() => {
-              mainImg.setAttribute('src', newSrc);
-              mainImg.style.opacity = '1';
-            }, 200);
+        cards.forEach(card => {
+          if (cat === 'todos' || card.dataset.category === cat) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
           }
         });
       });
     });
+
+    // 2. LÓGICA MODAL
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const id = card.dataset.id;
+        const template = document.getElementById(`template-${id}`);
+        if (!template) return;
+
+        modalBody.innerHTML = template.innerHTML;
+        modal.showModal();
+        document.body.style.overflow = 'hidden';
+
+        // Disparar evento para que ProyectosItem.astro inicialice su switcher
+        window.dispatchEvent(new CustomEvent('modalOpened'));
+        
+        // Switcher manual de emergencia por si el CustomEvent falla
+        const thumbs = modalBody.querySelectorAll('.js-modal-thumb');
+        const mainImg = modalBody.querySelector('.js-modal-main-img');
+        thumbs.forEach(thumb => {
+            thumb.onclick = () => {
+                mainImg.style.opacity = '0';
+                setTimeout(() => {
+                    mainImg.src = thumb.src;
+                    mainImg.style.opacity = '1';
+                }, 150);
+            };
+        });
+      });
+    });
+
+    // CERRAR MODAL
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal || e.target === closeBtn || e.target.closest('#close-modal')) {
+        modal.close();
+        document.body.style.overflow = '';
+      }
+    });
   }
 
-  document.addEventListener('astro:page-load', initProjectSlider);
-  initProjectSlider();
+  document.addEventListener('astro:page-load', initProyectos);
+  initProyectos();
 </script>
 
 <style>
-  /* 1. Contenedor del Slider: Asegura que sea una tira larga */
-  #main-projects-slider {
-    display: flex;
-    width: 100%;
-    will-change: transform;
-    cursor: grab;
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(8px);
   }
+  .filter-btn.active { pointer-events: none; }
 
-  #main-projects-slider:active {
-    cursor: grabbing;
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
-
-  /* 2. Cada Tarjeta: Obliga a que ocupe el 100% del contenedor padre */
-  .proyecto-card {
-    width: 100%;
-    flex-shrink: 0; /* Evita que las tarjetas se achiquen */
-  }
-
-  /* 3. Animación de las Flechas (Pulso sutil) */
-  @keyframes subtle-pulse {
-    0%, 100% { 
-      opacity: 0.8; 
-      transform: translateY(-50%) scale(1); 
-    }
-    50% { 
-      opacity: 1; 
-      transform: translateY(-50%) scale(1.1); 
-      box-shadow: 0 0 20px rgba(254, 240, 138, 0.4);
-    }
-  }
-
-  #next-project, #prev-project {
-    animation: subtle-pulse 3s infinite ease-in-out;
-    transition: all 0.3s ease;
-  }
-
-  /* Quitamos animación al pasar el mouse para que el usuario tenga control total */
-  #next-project:hover, #prev-project:hover {
-    animation: none;
-    transform: translateY(-50%) scale(1.15);
-    background-color: #fef08a; /* yellow-200 */
-  }
-
-  /* 4. Estilo de los Dots (Paginación) */
-  .project-dot {
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  /* 5. Ajuste para Celulares */
-  @media (max-width: 768px) {
-    #next-project, #prev-project {
-      size: 2.5rem; /* size-10 */
-    }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 </style>
