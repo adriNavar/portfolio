@@ -118,7 +118,19 @@ const PROYECTOS = [
       </button>
     ))}
 </div>
+<div class="w-full max-w-7xl mx-auto px-4 mb-8">
+  <div class="flex items-center justify-center gap-3 py-2 border-y border-white/5 bg-white/[0.01]">
+    <svg xmlns="http://www.w3.org/2000/svg" class="size-3 text-emerald-500/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    </svg>
 
+    <p class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-white/40">
+      <span class="text-emerald-500/60 font-bold">Privacidad:</span> Muchos dashboards no son públicos por confidencialidad.Por eso no estan, subire imangenes con versiones anonimizadas pronto.
+    </p>
+
+    <span class="size-1 rounded-full bg-emerald-500/40 shadow-[0_0_5px_rgba(16,185,129,0.5)]"></span>
+  </div>
+</div>
 <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 w-full max-w-7xl mx-auto px-2 md:px-4">
   {PROYECTOS.map((proy) => (
     <div 
