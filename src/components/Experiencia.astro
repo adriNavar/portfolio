@@ -40,48 +40,93 @@ const EXPERIENCIA = [
         }
     ],
 },
-    {
-    id: 'atento',
-    fecha: 'Jul 2018 - Feb 2022',
-    titulo: 'Soporte Técnico Especializado',
-    empresa: 'ATENTO S.A. CHACO',
-    items: [
-        { 
-            text: 'Brindé soporte técnico y atención personalizada a usuarios de Movistar (Fibra Óptica, ADSL, VOIP y TV). Me enfoqué en el diagnóstico ágil y la resolución de incidencias, priorizando siempre la empatía, la comunicación clara y la satisfacción total del cliente en cada interacción.', 
-            icons: [CallIcon, MoviIcon, TelefonicaIcon, AtentoIcon] 
-        }
-    ],
-    
-}
+ {
+        id: 'atento',
+        fecha: 'Jul 2018 - Feb 2022',
+        titulo: 'Soporte Técnico Especializado',
+        empresa: 'ATENTO S.A. CHACO',
+        items: [
+            { 
+                text: 'Brindé soporte técnico y atención personalizada a usuarios de Movistar (Fibra Óptica, ADSL, VOIP y TV). Me enfoqué en el diagnóstico ágil y la resolución de incidencias, priorizando siempre la empatía, la comunicación clara y la satisfacción total del cliente en cada interacción.', 
+                icons: [
+                    '/img/atento.png',
+                    '/img/movi.png',
+                    '/img/tele.png',
+                    '/img/soporte.png'
+                ] 
+            }
+        ],
+    }
 ];
 ---
 
-<div class="w-full mt-10 font-sans relative">
+<div class="w-full mt-2 font-sans relative"> <div class="flex flex-row justify-between items-center mb-4 border-b border-white/10 pb-4">
+        <div class="flex items-center gap-3">
+            <div class="size-2 rounded-full bg-emerald-500 animate-pulse"></div>
+            <!-- <span class="text-[10px] font-mono text-white/30 uppercase tracking-[0.2em] hidden sm:inline">
+                Trayectoria.sh
+            </span> -->
+        </div>
+
+        <button 
+            class="btn-ver group flex items-center gap-x-2 px-4 py-1.5 bg-emerald-500/5 border border-emerald-500/30 rounded-full hover:bg-emerald-500/20 hover:border-emerald-500 transition-all cursor-pointer shadow-lg"
+            data-img="/img/AN-CV.pdf" 
+            data-title="CURRICULUM VITAE"
+        >
+            <svg class="size-4 text-emerald-400 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span class="text-emerald-400 font-black text-[10px] uppercase tracking-tighter">Ver CV Completo</span>
+        </button>
+    </div>
     <ol class="flex flex-col md:flex-row w-full gap-y-0 md:gap-y-0 mb-6 relative">      
         {EXPERIENCIA.map(exp => (
             <ExperienciaItem {...exp} />
         ))}
     </ol>
 
-    <div class="hidden md:block w-full">
-        {EXPERIENCIA.map(exp => (
-            <div id={`pc-details-${exp.id}`} class="pc-details hidden w-full p-8 bg-green-950/10 border-l-4 border-green-500 rounded-r-2xl animate-in fade-in slide-in-from-top-4">
-                <h4 class="text-sm font-bold text-green-400 uppercase mb-6 tracking-widest">Tareas — {exp.titulo}</h4>
-                {exp.items ? (
-                    <div class="grid grid-cols-2 gap-8">
-                        {exp.items.map(item => (
-                            <div class="flex flex-col gap-2">
-                                <p class="text-white/80 text-sm italic">• {item.text}</p>
-                                <div class="flex gap-3 ml-4">
-                                    {item.icons?.map(Icon => <div class="size-4 text-white/20"><Icon /></div>)}
-                                </div>
-                            </div>
-                        ))}
+   <div class="hidden md:block w-full">
+  {EXPERIENCIA.map(exp => (
+    <div id={`pc-details-${exp.id}`} class="pc-details hidden w-full p-8 bg-emerald-950/10 border-l-4 border-emerald-500 rounded-r-2xl animate-in fade-in slide-in-from-top-4">
+      <h4 class="text-sm font-black text-emerald-400 uppercase mb-6 tracking-[0.2em] font-mono">Tareas — {exp.titulo}</h4>
+      {exp.items ? (
+        <div class="grid grid-cols-1 gap-8">
+          {exp.items.map(item => (
+            <div class="flex flex-col gap-6"> 
+              <p class="text-white/80 text-sm italic leading-relaxed">• {item.text}</p>
+              
+              <div class="flex flex-wrap justify-center gap-10 mt-2 border-t border-white/5 pt-8">
+                {item.icons?.map((icon, i) => {
+                  
+                  // 1. LÓGICA PARA IMÁGENES (Atento)
+                  if (typeof icon === 'string') {
+                    return (
+                      <div class={`size-12 flex items-center justify-center animate-blink delay-${(i % 4) + 1}`}>
+                        <img 
+                          src={icon} 
+                          alt="Logo tecnología" 
+                          class="max-w-full max-h-full object-contain"
+                        />
+                      </div>
+                    );
+                  }
+
+                  // 2. LÓGICA PARA SVGs (Freelance / SYK)
+                  const Icon = icon;
+                  return (
+                    <div class={`size-8 text-emerald-400 flex items-center justify-center animate-blink delay-${(i % 4) + 1} drop-shadow-[0_0_8px_rgba(52,211,153,0.4)]`}>
+                      <Icon class="w-full h-full" />
                     </div>
-                ) : <p class="text-white/60 italic text-sm">{exp.items}</p>}
+                  );
+                })}
+              </div>
             </div>
-        ))}
+          ))}
+        </div>
+      ) : <p class="text-white/60 italic text-sm">{exp.items}</p>}
     </div>
+  ))}
+</div>
 </div>
 
 <script is:inline>
@@ -90,10 +135,10 @@ const EXPERIENCIA = [
             const id = trigger.getAttribute('data-id');
             const isMobile = window.innerWidth < 768;
 
-            // 1. RESETEAR TODOS LOS BOTONES A VERDE
+            // 1. RESETEAR TODOS LOS BOTONES A VERDE ESMERALDA
             document.querySelectorAll('.exp-trigger').forEach(t => {
                 t.classList.remove('bg-white/10', 'text-white/60', 'border-white/20', 'shadow-none');
-                t.classList.add('bg-green-600', 'text-white', 'border-green-500', 'shadow-[0_0_15px_rgba(34,197,94,0.4)]');
+                t.classList.add('bg-emerald-600', 'text-[#050505]', 'border-emerald-500', 'shadow-[0_0_15px_rgba(16,185,129,0.3)]');
             });
 
             // 2. LÓGICA DE DESPLIEGUE (PC / CELU)
@@ -110,14 +155,28 @@ const EXPERIENCIA = [
             // Cerrar todos los contenidos
             document.querySelectorAll('.mobile-details, .pc-details').forEach(el => el.classList.add('hidden'));
 
-            // 3. SI SE ABRE, CAMBIAR EL BOTÓN A GRIS
+            // 3. SI SE ABRE, CAMBIAR EL BOTÓN A GRIS (ESTADO ACTIVO)
             if (wasHidden) {
                 contentToToggle.classList.remove('hidden');
                 
                 // Cambiamos el color del botón clickeado a GRIS
-                trigger.classList.remove('bg-green-600', 'border-green-500', 'shadow-[0_0_15px_rgba(34,197,94,0.4)]');
+                trigger.classList.remove('bg-emerald-600', 'text-[#050505]', 'border-emerald-500', 'shadow-[0_0_15px_rgba(16,185,129,0.3)]');
                 trigger.classList.add('bg-white/10', 'text-white/60', 'border-white/20', 'shadow-none');
             }
         });
     });
 </script>
+
+<style>
+  @keyframes terminal-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .animate-blink {
+    animation: terminal-blink 2.5s infinite ease-in-out;
+  }
+  .delay-1 { animation-delay: 0.4s; }
+  .delay-2 { animation-delay: 0.8s; }
+  .delay-3 { animation-delay: 1.2s; }
+  .delay-4 { animation-delay: 1.6s; }
+</style>

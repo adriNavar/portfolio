@@ -105,19 +105,20 @@ const PROYECTOS = [
 ];
 ---
 
-<div class="flex flex-nowrap md:justify-center gap-2 mb-10 px-4 overflow-x-auto no-scrollbar pb-4 md:pb-0">
+<div class="flex flex-row justify-center gap-2 md:gap-4 mb-10 px-2 w-full overflow-hidden">
     {['todos', 'desarrollo', 'business'].map((cat) => (
       <button 
-        class={`filter-btn whitespace-nowrap px-4 md:px-6 py-2 rounded-full text-[10px] md:text-sm font-bold border transition-all duration-300 flex-shrink-0 
+        class={`filter-btn whitespace-nowrap px-4 md:px-6 py-2.5 rounded-full text-[9px] md:text-xs font-black border transition-all duration-300 uppercase tracking-widest flex-shrink
           ${cat === 'todos' 
-            ? 'active text-yellow-200 border-yellow-200/50 bg-yellow-200/10' 
-            : 'text-white/40 border-white/10 hover:border-white/30'}`}
+            ? 'active text-emerald-400 border-emerald-500 bg-emerald-500/10 shadow-[0_0_15px_rgba(16,185,129,0.3)]' 
+            : 'text-white/40 border-white/10 hover:border-emerald-500/50 hover:text-emerald-400'}`}
         data-category={cat}
       >
-        {cat === 'todos' ? 'Todos' : cat === 'desarrollo' ? 'Desarrollo Web' : 'Business Analyst'}
+        {cat === 'todos' ? 'Todos' : cat === 'desarrollo' ? 'Desarrollo Web' : 'BI Analyst'}
       </button>
     ))}
 </div>
+
 <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 w-full max-w-7xl mx-auto px-2 md:px-4">
   {PROYECTOS.map((proy) => (
     <div 
@@ -178,27 +179,27 @@ const PROYECTOS = [
     const filters = document.querySelectorAll('.filter-btn');
 
     // 1. FILTROS
-    filters.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const cat = btn.dataset.category;
-        
-        filters.forEach(b => {
-            b.classList.remove('text-yellow-200', 'border-yellow-200/50', 'bg-yellow-200/10', 'active');
-            b.classList.add('text-white/40', 'border-white/10');
-        });
-
-        btn.classList.add('active', 'text-yellow-200', 'border-yellow-200/50', 'bg-yellow-200/10');
-        btn.classList.remove('text-white/40', 'border-white/10');
-
-        cards.forEach(card => {
-          if (cat === 'todos' || card.dataset.category === cat) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
+filters.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const cat = btn.dataset.category;
+    
+    filters.forEach(b => {
+        // LIMPIEZA TOTAL: Quitamos clases de activo y de brillo
+        b.classList.remove('active', 'text-emerald-400', 'border-emerald-500', 'bg-emerald-500/10', 'shadow-[0_0_15px_rgba(16,185,129,0.3)]');
+        // Reset a estado "apagado"
+        b.classList.add('text-white/40', 'border-white/10');
     });
+
+    // ACTIVACIÓN: Solo al que clickeamos
+    btn.classList.add('active', 'text-emerald-400', 'border-emerald-500', 'bg-emerald-500/10', 'shadow-[0_0_15px_rgba(16,185,129,0.3)]');
+    btn.classList.remove('text-white/40', 'border-white/10');
+
+    // Lógica de filtrado de cards...
+    cards.forEach(card => {
+        card.style.display = (cat === 'todos' || card.dataset.category === cat) ? 'flex' : 'none';
+    });
+  });
+});
 
     // 2. LÓGICA MODAL
     cards.forEach(card => {
@@ -243,11 +244,29 @@ const PROYECTOS = [
 </script>
 
 <style>
+  /* 1. ESTADO ACTIVO: El brillo verde */
+  .filter-btn.active {
+    color: #34d399 !important; /* emerald-400 */
+    border-color: rgba(52, 211, 153, 0.5) !important;
+    background-color: rgba(52, 211, 153, 0.1) !important;
+    text-shadow: 0 0 10px rgba(52, 211, 153, 0.5);
+    box-shadow: 0 0 20px rgba(52, 211, 153, 0.15);
+    pointer-events: none; /* Evita re-clicks innecesarios */
+  }
+
+  /* 2. HOVER SUTIL: Para los botones que no están activos */
+  .filter-btn:not(.active):hover {
+    color: white;
+    border-color: rgba(52, 211, 153, 0.4);
+    background-color: rgba(255, 255, 255, 0.05);
+   
+  }
+
+  /* 3. MODAL Y SCROLLBAR */
   dialog::backdrop {
     background: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(8px);
   }
-  .filter-btn.active { pointer-events: none; }
 
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -255,5 +274,15 @@ const PROYECTOS = [
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  /* Animación suave para cuando aparecen/desaparecen cards */
+  .project-card {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 </style>

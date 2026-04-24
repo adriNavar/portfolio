@@ -1,31 +1,32 @@
 ---
 import GmailIcon from '../components/icons/Gmail.astro';
 import LinkedIn from './icons/LinkedIn.astro';
-import WhatsAppIcon from './icons/WhatsApp.astro'; // Importamos el de Wpp
+import WhatsAppIcon from './icons/WhatsApp.astro';
 const currentYear = new Date().getFullYear();
 ---
-<footer class="opacity-90 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-10 flex justify-center mt-[-2rem] relative z-10">
-  <div class="rounded-3xl md:rounded-full border border-yellow-200/20 bg-[#0a192f]/95 backdrop-blur-xl w-full px-8 py-6 md:py-4 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_-10px_20px_rgba(0,0,0,0.5)]">
-    <div class="flex gap-x-3 order-2 md:order-1">
-      <a href="https://linkedin.com/in/adrian-navarro-arg/" target="_blank" class="size-10 bg-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg shadow-white/5">
-        <LinkedIn class="size-6 text-[#0077b5]" />
+<footer class="opacity-95 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-10 flex justify-center mt-[-2rem] relative z-10 px-4">
+  <div class="rounded-3xl md:rounded-full border border-emerald-500/40 bg-[#050505]/95 backdrop-blur-xl w-full px-8 py-6 md:py-4 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_-15px_30px_rgba(0,0,0,0.9)] transition-all duration-500 hover:border-emerald-400/60">
+    
+    <div class="flex gap-x-4 order-2 md:order-1">
+      <a href="https://linkedin.com/in/adrian-navarro-arg/" target="_blank" class="size-9 bg-white/90 rounded-full flex items-center justify-center hover:scale-110 transition-all hover:bg-white shadow-lg shadow-emerald-500/10" aria-label="LinkedIn">
+        <LinkedIn class="size-5 text-[#0077b5]" />
       </a>
       
-      <a href="https://wa.me/543794921315" target="_blank" class="size-10 bg-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg shadow-white/5">
-        <WhatsAppIcon class="size-6 text-[#25D366]" />
+      <a href="https://wa.me/543794921315" target="_blank" class="size-9 bg-white/90 rounded-full flex items-center justify-center hover:scale-110 transition-all hover:bg-white shadow-lg shadow-emerald-500/10" aria-label="WhatsApp">
+        <WhatsAppIcon class="size-5 text-[#25D366]" />
       </a>
 
-      <a href="mailto:adridonorione@gmail.com" class="size-10 bg-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg shadow-white/5">
-        <GmailIcon class="size-6 text-[#EA4335]"/>
+      <a href="mailto:adridonorione@gmail.com" class="size-9 bg-white/90 rounded-full flex items-center justify-center hover:scale-110 transition-all hover:bg-white shadow-lg shadow-emerald-500/10" aria-label="Email">
+        <GmailIcon class="size-5 text-[#EA4335]"/>
       </a>
     </div>
 
-    <span class="text-yellow-200/60 text-[10px] md:text-xs font-mono tracking-[0.3em] uppercase order-1 md:order-2 text-center">
-      CORRIENTES • ARGENTINA
+    <span class="text-emerald-400 text-[10px] md:text-xs font-mono tracking-[0.4em] uppercase order-1 md:order-2 text-center drop-shadow-[0_0_10px_rgba(16,185,129,0.5)]">
+      Corrientes • Argentina
     </span>
 
-    <div class="text-white/60 text-[9px] md:text-[10px] font-mono text-center md:text-right order-3">
-      © {currentYear} • <span class="text-white/40 italic">Adrián Navarro.</span>
+    <div class="text-white/50 text-[9px] md:text-[10px] font-mono text-center md:text-right order-3">
+      © {currentYear} • <span class="text-emerald-200/40 italic font-bold">Adrián Navarro.</span>
     </div>
   </div>
 </footer>
